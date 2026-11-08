@@ -27,9 +27,13 @@ def authors_line(authors: list[str]) -> str:
     return ", ".join(authors[:2]) + (" et al." if len(authors) > 2 else "")
 
 
+def dots(score: int) -> str:
+    return "●" * score + "○" * (5 - score)
+
+
 def score_block(pick: Pick) -> str:
-    parts = " · ".join(f"{SCORE_LABELS[a]} {pick.scores.get(a, 1)}" for a in SCORE_LABELS)
-    return f"📊 {parts} → <b>{pick.overall:.1f}/5</b>"
+    rows = [f"{SCORE_LABELS[a]:<8} {dots(pick.scores.get(a, 1))}" for a in SCORE_LABELS]
+    return f"<code>{e(chr(10).join(rows))}</code>\n<b>Overall {pick.overall:.1f}/5</b>"
 
 
 def format_card(pick: Pick, index: int, total: int) -> str:

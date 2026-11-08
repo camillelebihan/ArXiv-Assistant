@@ -218,10 +218,10 @@ def test_weekly_messages():
     assert "The big picture" in text and "Watch next" in text and "Top 1" in text
 
 
-def test_score_block_is_one_line():
-    line = score_block(make_pick())
-    assert "\n" not in line
-    assert "Novelty 4 · Rigor 3 · Impact 5 · For you 4" in line and "4.1/5" in line
+def test_score_block_uses_dots():
+    block = score_block(make_pick())
+    assert "Novelty  ●●●●○" in block and "Impact   ●●●●●" in block
+    assert "Overall 4.1/5" in block
 
 
 # --- schedule ----------------------------------------------------------------
