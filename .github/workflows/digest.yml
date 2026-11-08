@@ -1,0 +1,88 @@
+name: Digest
+
+# Runs the bot in its Docker image on GitHub's servers, so it works even when
+# your laptop is off. Several runs each morning; the bot only sends what is due
+# (weekdays 07:00 daily, Sunday 09:00 weekly, Paris time), so it is safe against
+# GitHub's schedule delays and daylight-saving changes.
+on:
+  schedule:
+    - cron: "10 5-9 * * *"
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "What to run"
+        type: choice
+        options: [auto, daily, weekly, check]
+        default: auto
+
+permissions:
+  contents: write   # save state on the `data` branch
+  pages: write
+  id-token: write
+
+concurrency:
+  group: digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Load saved state from the data branch
+        env:
+          REPO_URL: https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
+        run: |
+          if git ls-remote --exit-code --heads "$REPO_URL" data >/dev/null; then
+            git clone --quiet --branch data --single-branch "$REPO_URL" state
+          else
+            mkdir state && git -C state init --quiet -b data
+            git -C state remote add origin "$REPO_URL"
+          fi
+
+      - name: Build the Docker image
+        run: docker build -t arxiv-digest-bot .
+
+      - name: Run the bot
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.5-flash' }}
+          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+        run: |
+          mkdir -p _site
+          docker run --rm --user "$(id -u):$(id -g)" \
+            -v "$PWD/state:/data" -v "$PWD/_site:/site" \
+            -e TELEGRAM_BOT_TOKEN -e TELEGRAM_CHAT_ID -e GEMINI_API_KEY \
+            -e GEMINI_MODEL -e SITE_URL \
+            arxiv-digest-bot python -m src.main "${{ inputs.job || 'auto' }}" --site /site
+
+      - name: Save state
+        if: always()
+        run: |
+          cd state
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit --quiet -m "Digest state $(date -u +%F)"
+            git push --quiet origin data
+          fi
+
+      - name: Rebuild website (also when nothing was due)
+        run: |
+          docker run --rm --user "$(id -u):$(id -g)" \
+            -v "$PWD/state:/data" -v "$PWD/_site:/site" \
+            arxiv-digest-bot python -m src.main site /site
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,145 @@
+# What the digest looks for. Edit freely: no code changes needed.
+#
+# - profile: who you are; Gemini uses it to score "relevance to you".
+# - categories: arXiv categories to scan (https://arxiv.org/category_taxonomy).
+# - each [[theme]]: keywords pre-select papers before Gemini sees them;
+#   weight > 1 favours a theme, < 1 keeps it occasional.
+# - exclude: papers whose title or abstract contain these are skipped.
+
+profile = """
+I want to become fluent in AI and deep tech: able to hold technical conversations
+with founders and researchers, and to think strategically about where AI is going,
+as a future leader in a large tech company or another sector. I care most about
+AI for innovation: breakthroughs that change products, industries and society,
+and the signals that show where the field is heading next.
+"""
+
+categories = [
+  "cs.AI",    # artificial intelligence
+  "cs.LG",    # machine learning
+  "cs.CL",    # language models / NLP
+  "cs.RO",    # robotics
+  "cs.MA",    # multi-agent systems
+  "cs.CY",    # computers & society (policy, ethics)
+  "cs.HC",    # human-computer interaction (products, adoption)
+  "quant-ph", # quantum computing
+  "econ.GN",  # economics of AI, labour, productivity
+  "q-fin.CP", # computational finance (light)
+]
+
+exclude = [
+  "erratum",
+  "corrigendum",
+]
+
+[scoring]
+# How the four 1-5 scores combine into the overall rating.
+novelty = 0.25
+rigor = 0.20
+impact = 0.30
+relevance = 0.25
+
+[[theme]]
+name = "Frontier LLMs & reasoning"
+emoji = "🧠"
+weight = 1.2
+description = "How the most capable models are built, trained and made to reason; scaling, post-training, test-time compute."
+keywords = ["large language model", "llm", "reasoning", "chain-of-thought", "scaling law",
+  "pretraining", "post-training", "reinforcement learning from human feedback", "rlhf",
+  "test-time compute", "mixture of experts", "foundation model", "frontier model"]
+
+[[theme]]
+name = "AI agents"
+emoji = "🤖"
+weight = 1.2
+description = "Systems that plan, use tools and act autonomously; multi-agent systems; computer-use agents."
+keywords = ["agent", "agentic", "tool use", "tool-use", "multi-agent", "autonomous",
+  "computer use", "web agent", "planning", "function calling"]
+
+[[theme]]
+name = "Safety & interpretability"
+emoji = "🛡️"
+weight = 1.0
+description = "Understanding what models do inside, aligning them, evaluating risks and robustness."
+keywords = ["alignment", "interpretability", "mechanistic", "ai safety", "jailbreak",
+  "red teaming", "red-teaming", "hallucination", "deception", "evaluation of risks", "robustness"]
+
+[[theme]]
+name = "Robotics & embodied AI"
+emoji = "🦾"
+weight = 1.2
+description = "Robots, humanoids, vision-language-action models, world models, physical AI."
+keywords = ["robot", "robotic", "humanoid", "embodied", "manipulation", "locomotion",
+  "vision-language-action", "world model", "sim-to-real", "autonomous driving", "drone"]
+
+[[theme]]
+name = "Efficient AI & chips"
+emoji = "🔌"
+weight = 1.0
+description = "Making AI cheaper and faster: inference efficiency, compression, hardware, energy use, edge AI."
+keywords = ["inference", "quantization", "distillation", "pruning", "efficient", "accelerator",
+  "gpu", "hardware", "energy consumption", "on-device", "edge ai", "neuromorphic", "latency"]
+
+[[theme]]
+name = "Quantum computing"
+emoji = "⚛️"
+weight = 1.0
+description = "Quantum computers that work in practice: algorithms, error correction, quantum machine learning."
+keywords = ["quantum computing", "quantum computer", "qubit", "quantum algorithm",
+  "error correction", "quantum machine learning", "quantum advantage", "fault-tolerant"]
+
+[[theme]]
+name = "AI for science & deeptech"
+emoji = "🔬"
+weight = 1.1
+description = "AI that accelerates discovery: materials, chemistry, biology, climate, energy, physics."
+keywords = ["scientific discovery", "materials", "molecule", "protein", "drug discovery",
+  "chemistry", "climate", "weather forecasting", "fusion", "battery", "physics-informed", "genomics"]
+
+[[theme]]
+name = "AI for health & food"
+emoji = "🧬"
+weight = 1.0
+description = "Medicine, diagnostics, wellbeing, nutrition, food systems and agriculture."
+keywords = ["medical", "clinical", "health", "patient", "diagnosis", "radiology", "ehr",
+  "nutrition", "food", "diet", "agriculture", "crop"]
+
+[[theme]]
+name = "AI in sports"
+emoji = "⚽"
+weight = 1.0
+description = "Performance analysis, training, injury prevention, tactics and fan experience."
+keywords = ["sport", "athlete", "football", "soccer", "basketball", "tennis", "cycling",
+  "running", "injury", "player tracking", "training load", "match analysis"]
+
+[[theme]]
+name = "AI products & people"
+emoji = "📱"
+weight = 1.0
+description = "How AI is built into products and used by people: user studies, deployment, assistants, adoption."
+keywords = ["user study", "deployment", "assistant", "copilot", "human-ai", "human-computer",
+  "recommendation", "personalization", "adoption", "real-world deployment", "chatbot"]
+
+[[theme]]
+name = "Policy & society"
+emoji = "🏛️"
+weight = 1.0
+description = "Regulation, governance, ethics, labour markets and the societal impact of AI."
+keywords = ["regulation", "governance", "policy", "ai act", "ethics", "fairness", "privacy",
+  "copyright", "misinformation", "labor market", "labour market", "societal impact"]
+
+[[theme]]
+name = "Business & startups"
+emoji = "🚀"
+weight = 1.0
+description = "Economics and strategy of AI: productivity, business models, commercialization, entrepreneurship."
+keywords = ["productivity", "business", "firm", "startup", "entrepreneur", "commercial",
+  "market", "economic impact", "innovation", "venture", "enterprise"]
+
+[[theme]]
+name = "AI for finance"
+emoji = "📈"
+weight = 0.6
+description = "AI applied to markets, trading, risk and financial services. Occasional, not the main focus."
+keywords = ["finance", "financial", "stock", "trading", "portfolio", "asset pricing",
+  "credit risk", "fraud detection", "banking"]
