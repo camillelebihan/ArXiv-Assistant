@@ -10,8 +10,8 @@ from src.main import due_jobs, week_key, week_label
 from src.ranker import Pick, parse_scores, select_diverse
 from src.site import build_site
 from src.state import State
-from src.summarizer import fallback_card, parse_cards
-from src.telegram import TELEGRAM_LIMIT, daily_messages, dots, weekly_messages
+from src.summarizer import fallback_card, parse_cards, write_cards
+from src.telegram import TELEGRAM_LIMIT, daily_messages, score_block, weekly_messages
 from src.topics import load_topics
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -148,18 +148,48 @@ def test_fallback_card():
     assert fallback_card(make_pick()) == {"in_short": "First sentence."}
 
 
-def test_parse_cards_matches_by_index_and_falls_back():
+def test_parse_cards_matches_by_index():
     picks = [make_pick(arxiv_id="a"), make_pick(arxiv_id="b")]
-    data = [{"i": 1, "in_short": "Second paper.", "ask": "Why?"}, {"i": 0, "picture_it": "x"}]
-    cards = parse_cards(data, picks)
-    assert cards[0] == {"in_short": "First sentence."}  # row without in_short → fallback
-    assert cards[1] == {"in_short": "Second paper.", "ask": "Why?"}
+    data = [{"i": "1", "in_short": "Second paper.", "ask": "Why?"}, {"i": 0, "picture_it": "x"}]
+    assert parse_cards(data, picks) == [None, {"in_short": "Second paper.", "ask": "Why?"}]
 
 
 def test_parse_cards_wrapped_and_garbage():
     picks = [make_pick()]
     assert parse_cards({"cards": [{"i": 0, "in_short": "Ok."}]}, picks)[0]["in_short"] == "Ok."
-    assert parse_cards("nonsense", picks) == [{"in_short": "First sentence."}]
+    assert parse_cards("nonsense", picks) == [None]
+
+
+class FakeLLM:
+    """Answers each cards prompt with the next scripted reply."""
+
+    def __init__(self, replies):
+        self.replies, self.calls = list(replies), 0
+
+    def json(self, prompt):
+        self.calls += 1
+        return self.replies.pop(0)
+
+
+def test_write_cards_retries_only_missing_ones():
+    picks = [make_pick(arxiv_id="a"), make_pick(arxiv_id="b"), make_pick(arxiv_id="c")]
+    llm = FakeLLM([
+        [{"i": 0, "in_short": "A."}, {"i": 2, "in_short": "C."}],  # skipped paper 1
+        [{"i": 0, "in_short": "B."}],                             # retry has only paper 1
+    ])
+    cards = write_cards(picks, llm)
+    assert [c["in_short"] for c in cards] == ["A.", "B.", "C."]
+    assert llm.calls == 2
+
+
+def test_write_cards_falls_back_when_retry_also_misses():
+    llm = FakeLLM([[], []])
+    assert write_cards([make_pick()], llm) == [{"in_short": "First sentence."}]
+
+
+def test_scores_accept_string_index(topics):
+    row = {"i": "0", "theme": "AI agents", "novelty": 3, "rigor": 3, "impact": 3, "relevance": 3}
+    assert len(parse_scores([row], [make_paper()], topics)) == 1
 
 
 def test_daily_quota_detection():
@@ -188,8 +218,10 @@ def test_weekly_messages():
     assert "The big picture" in text and "Watch next" in text and "Top 1" in text
 
 
-def test_dots():
-    assert dots(3) == "●●●○○"
+def test_score_block_is_one_line():
+    line = score_block(make_pick())
+    assert "\n" not in line
+    assert "Novelty 4 · Rigor 3 · Impact 5 · For you 4" in line and "4.1/5" in line
 
 
 # --- schedule ----------------------------------------------------------------

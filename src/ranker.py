@@ -21,9 +21,13 @@ Reader profile: {profile}
 Themes (pick the single best fit for each paper, using the exact name):
 {themes}
 
-Score each axis from 1 (low) to 5 (high). Be strict: 5 is rare.
+Score each axis from 1 (low) to 5 (high), comparing the papers AGAINST EACH OTHER.
+Use the whole scale. For each axis, across this batch aim for roughly:
+10% get 5, 20% get 4, 40% get 3, 20% get 2, 10% get 1.
+A 5 means "one of the best papers of the month", 3 means "solid but ordinary".
 - novelty: genuinely new idea or result, not an incremental tweak.
 - rigor: convincing evidence (strong baselines, real data, clear evaluation).
+  Abstracts without concrete results or comparisons score at most 3.
 - impact: could change products, industries, science or society.
 - relevance: how useful this is for the reader profile above.
 
@@ -57,6 +61,17 @@ class Pick:
         return cls(**{k: data[k] for k in cls.__dataclass_fields__ if k in data})
 
 
+def as_index(value: object) -> int | None:
+    """Gemini sometimes sends the paper number as a string."""
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value
+    if isinstance(value, str) and value.strip().isdigit():
+        return int(value)
+    return None
+
+
 def _clamp(value: object) -> int:
     try:
         return max(1, min(5, int(value)))  # type: ignore[call-overload]
@@ -84,8 +99,8 @@ def parse_scores(data: object, papers: list[Paper], topics: Topics) -> list[Pick
     for row in data:
         if not isinstance(row, dict):
             continue
-        i = row.get("i")
-        if not isinstance(i, int) or not 0 <= i < len(papers) or i in seen:
+        i = as_index(row.get("i"))
+        if i is None or not 0 <= i < len(papers) or i in seen:
             continue
         seen.add(i)
         paper = papers[i]

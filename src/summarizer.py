@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 
 from .llm import Gemini, LLMError
-from .ranker import Pick, describe
+from .ranker import Pick, as_index, describe
 
 log = logging.getLogger("arxiv-digest")
 
@@ -53,28 +53,40 @@ def fallback_card(pick: Pick) -> dict[str, str]:
     return {"in_short": f"{first}." if first else pick.title}
 
 
-def parse_cards(data: object, picks: list[Pick]) -> list[dict[str, str]]:
-    """Match Gemini's list back to the picks; any missing card falls back to the abstract."""
+def parse_cards(data: object, picks: list[Pick]) -> list[dict[str, str] | None]:
+    """Match Gemini's list back to the picks; None where a card is missing."""
     if isinstance(data, dict):  # some models wrap the list in an object
         data = next((v for v in data.values() if isinstance(v, list)), [])
     cards: dict[int, dict[str, str]] = {}
     for row in data if isinstance(data, list) else []:
-        if isinstance(row, dict) and isinstance(row.get("i"), int) and row.get("in_short"):
-            cards[row["i"]] = {k: str(row[k]).strip() for k in CARD_FIELDS if row.get(k)}
-    return [cards.get(i) or fallback_card(p) for i, p in enumerate(picks)]
+        if not isinstance(row, dict) or not row.get("in_short"):
+            continue
+        i = as_index(row.get("i"))
+        if i is not None and 0 <= i < len(picks):
+            cards[i] = {k: str(row[k]).strip() for k in CARD_FIELDS if row.get(k)}
+    return [cards.get(i) for i in range(len(picks))]
+
+
+def _ask(picks: list[Pick], llm: Gemini) -> list[dict[str, str] | None]:
+    listing = "\n\n".join(f"[{i}] {p.title}\n{p.abstract}" for i, p in enumerate(picks))
+    try:
+        return parse_cards(llm.json(CARDS_PROMPT.format(papers=listing)), picks)
+    except LLMError as exc:
+        log.error("Writing cards failed: %s", exc)
+        return [None] * len(picks)
 
 
 def write_cards(picks: list[Pick], llm: Gemini) -> list[dict[str, str]]:
-    """All cards in a single Gemini call, to stay well inside the free daily quota."""
+    """All cards in one Gemini call, plus one follow-up call for any card it skipped."""
     if not picks:
         return []
-    listing = "\n\n".join(f"[{i}] {p.title}\n{p.abstract}" for i, p in enumerate(picks))
-    try:
-        data = llm.json(CARDS_PROMPT.format(papers=listing))
-    except LLMError as exc:
-        log.error("Writing cards failed: %s", exc)
-        return [fallback_card(p) for p in picks]
-    return parse_cards(data, picks)
+    cards = _ask(picks, llm)
+    missing = [i for i, card in enumerate(cards) if card is None]
+    if missing:
+        log.info("Retrying %d missing card(s)", len(missing))
+        for i, card in zip(missing, _ask([picks[i] for i in missing], llm), strict=True):
+            cards[i] = card
+    return [card or fallback_card(p) for card, p in zip(cards, picks, strict=True)]
 
 
 def weekly_big_picture(picks: list[Pick], llm: Gemini) -> dict:

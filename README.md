@@ -53,7 +53,7 @@ and daylight-saving time. State lives on the `data` branch.
 2. Repo **Settings → Pages → Source: GitHub Actions**.
 3. **Actions → Digest → Run workflow → `check`** to test, then `daily` for a first digest.
 
-Optional: a repository *variable* `GEMINI_MODEL` changes the model (default `gemini-2.5-flash`).
+Optional: a repository *variable* `GEMINI_MODEL` changes the model (default `gemini-3.5-flash-lite`).
 
 ### Locally (Docker)
 ```bash

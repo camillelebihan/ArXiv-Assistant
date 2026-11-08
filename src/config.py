@@ -15,7 +15,7 @@ class Config:
     telegram_token: str = ""
     telegram_chat_id: str = ""
     gemini_api_key: str = ""
-    gemini_model: str = "gemini-2.5-flash"
+    gemini_model: str = "gemini-3.5-flash-lite"
     gemini_interval: float = 4.0
     topics_path: str = "topics.toml"
     data_dir: str = "/data"
@@ -34,7 +34,7 @@ class Config:
             telegram_token=os.getenv("TELEGRAM_BOT_TOKEN", "").strip(),
             telegram_chat_id=os.getenv("TELEGRAM_CHAT_ID", "").strip(),
             gemini_api_key=os.getenv("GEMINI_API_KEY", "").strip(),
-            gemini_model=os.getenv("GEMINI_MODEL", "gemini-2.5-flash").strip(),
+            gemini_model=os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite").strip(),
             gemini_interval=float(os.getenv("GEMINI_INTERVAL", "4")),
             topics_path=os.getenv("TOPICS_PATH", "topics.toml"),
             data_dir=os.getenv("DATA_DIR", "/data"),
