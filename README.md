@@ -1,4 +1,4 @@
-# ArXiv Assistant
+# ArXiv Assistant Bot
 
 A personal AI research briefing. Every weekday at 07:00 it scans new arXiv papers across
 AI, robotics, quantum and deep tech, picks the 7 most worth reading, and explains each one
