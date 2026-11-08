@@ -36,7 +36,8 @@ class Gemini:
     def __init__(self, api_key: str, model: str, min_interval: float = 4.0, retries: int = 3):
         from google import genai  # imported lazily so tests don't need credentials
 
-        self._client = genai.Client(api_key=api_key)
+        # JSON mode is only available on the v1beta API, not the stable v1 the SDK defaults to.
+        self._client = genai.Client(api_key=api_key, http_options={"api_version": "v1beta"})
         self.model = model
         self._min_interval = min_interval
         self._retries = retries
