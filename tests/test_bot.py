@@ -5,12 +5,12 @@ from zoneinfo import ZoneInfo
 import pytest
 
 from src.arxiv_client import Paper, build_query, parse_feed, preselect, tag_themes
-from src.llm import LLMError, extract_json
+from src.llm import LLMError, _is_daily_quota, extract_json
 from src.main import due_jobs, week_key, week_label
 from src.ranker import Pick, parse_scores, select_diverse
 from src.site import build_site
 from src.state import State
-from src.summarizer import fallback_card
+from src.summarizer import fallback_card, parse_cards
 from src.telegram import TELEGRAM_LIMIT, daily_messages, dots, weekly_messages
 from src.topics import load_topics
 
@@ -146,6 +146,25 @@ def test_select_diverse_caps_each_theme():
 
 def test_fallback_card():
     assert fallback_card(make_pick()) == {"in_short": "First sentence."}
+
+
+def test_parse_cards_matches_by_index_and_falls_back():
+    picks = [make_pick(arxiv_id="a"), make_pick(arxiv_id="b")]
+    data = [{"i": 1, "in_short": "Second paper.", "ask": "Why?"}, {"i": 0, "picture_it": "x"}]
+    cards = parse_cards(data, picks)
+    assert cards[0] == {"in_short": "First sentence."}  # row without in_short → fallback
+    assert cards[1] == {"in_short": "Second paper.", "ask": "Why?"}
+
+
+def test_parse_cards_wrapped_and_garbage():
+    picks = [make_pick()]
+    assert parse_cards({"cards": [{"i": 0, "in_short": "Ok."}]}, picks)[0]["in_short"] == "Ok."
+    assert parse_cards("nonsense", picks) == [{"in_short": "First sentence."}]
+
+
+def test_daily_quota_detection():
+    assert _is_daily_quota(Exception("quotaId: GenerateRequestsPerDayPerProjectPerModel-FreeTier"))
+    assert not _is_daily_quota(Exception("429 per minute"))
 
 
 # --- telegram ----------------------------------------------------------------

@@ -24,7 +24,7 @@ from .llm import Gemini, LLMError
 from .ranker import score_papers, select_diverse
 from .site import build_site
 from .state import State
-from .summarizer import weekly_big_picture, write_card
+from .summarizer import weekly_big_picture, write_cards
 from .topics import load_topics
 
 log = logging.getLogger("arxiv-digest")
@@ -64,9 +64,13 @@ def run_daily(cfg: Config, state: State, llm: Gemini, today: date) -> int:
     candidates = preselect(papers, topics, cfg.candidates)
     log.info("%d new papers, %d match your themes", len(papers), len(candidates))
 
-    picks = select_diverse(score_papers(candidates, topics, llm), cfg.daily_count)
-    for pick in picks:
-        pick.card = write_card(pick, llm)
+    scored = score_papers(candidates, topics, llm)
+    if candidates and not scored:
+        # Gemini is down or out of quota: send nothing and keep the papers for the next run.
+        raise LLMError("no paper could be scored; nothing sent, will retry on the next run")
+    picks = select_diverse(scored, cfg.daily_count)
+    for pick, card in zip(picks, write_cards(picks, llm), strict=True):
+        pick.card = card
         pick.date = today.isoformat()
 
     day_url = f"{cfg.site_url.rstrip('/')}/days/{today}.html" if cfg.site_url else ""

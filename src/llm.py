@@ -32,6 +32,11 @@ def _is_rate_limit(exc: Exception) -> bool:
     return "429" in text or "RESOURCE_EXHAUSTED" in text
 
 
+def _is_daily_quota(exc: Exception) -> bool:
+    """The per-day quota resets at midnight Pacific time: retrying today is pointless."""
+    return "PerDay" in str(exc)
+
+
 class Gemini:
     def __init__(self, api_key: str, model: str, min_interval: float = 4.0, retries: int = 3):
         from google import genai  # imported lazily so tests don't need credentials
@@ -67,7 +72,7 @@ class Gemini:
             except Exception as exc:  # SDK raises several error types
                 last_error = exc
                 log.warning("Gemini attempt %d failed: %s", attempt, exc)
-                if not _is_rate_limit(exc):
+                if not _is_rate_limit(exc) or _is_daily_quota(exc):
                     break
                 time.sleep(20 * attempt)
         raise LLMError(str(last_error))

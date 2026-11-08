@@ -18,11 +18,12 @@ CARD_FIELDS = (
     "ask",
 )
 
-CARD_PROMPT = """You explain a new research paper to an ambitious, non-specialist reader who wants
+CARDS_PROMPT = """You explain new research papers to an ambitious, non-specialist reader who wants
 to talk confidently with AI founders and researchers. Plain English, no hype.
 Every field is ONE sentence of at most 25 words.
 
-Return JSON with exactly these keys:
+For EACH paper below, return an object with exactly these keys:
+- "i": the paper's number.
 - "in_short": what the paper does and finds.
 - "picture_it": an everyday visual analogy for the core idea, starting with "Like".
 - "key_term": one technical term from the paper and its meaning, as "Term: meaning".
@@ -30,8 +31,10 @@ Return JSON with exactly these keys:
 - "future_signal": what this suggests about where AI or this field is heading.
 - "ask": one sharp question the reader could ask a founder or researcher about this.
 
-Title: {title}
-Abstract: {abstract}
+Return a JSON list of these objects, one per paper.
+
+Papers:
+{papers}
 """
 
 WEEKLY_PROMPT = """Here are the most important AI papers of the week, as JSON:
@@ -50,15 +53,28 @@ def fallback_card(pick: Pick) -> dict[str, str]:
     return {"in_short": f"{first}." if first else pick.title}
 
 
-def write_card(pick: Pick, llm: Gemini) -> dict[str, str]:
+def parse_cards(data: object, picks: list[Pick]) -> list[dict[str, str]]:
+    """Match Gemini's list back to the picks; any missing card falls back to the abstract."""
+    if isinstance(data, dict):  # some models wrap the list in an object
+        data = next((v for v in data.values() if isinstance(v, list)), [])
+    cards: dict[int, dict[str, str]] = {}
+    for row in data if isinstance(data, list) else []:
+        if isinstance(row, dict) and isinstance(row.get("i"), int) and row.get("in_short"):
+            cards[row["i"]] = {k: str(row[k]).strip() for k in CARD_FIELDS if row.get(k)}
+    return [cards.get(i) or fallback_card(p) for i, p in enumerate(picks)]
+
+
+def write_cards(picks: list[Pick], llm: Gemini) -> list[dict[str, str]]:
+    """All cards in a single Gemini call, to stay well inside the free daily quota."""
+    if not picks:
+        return []
+    listing = "\n\n".join(f"[{i}] {p.title}\n{p.abstract}" for i, p in enumerate(picks))
     try:
-        data = llm.json(CARD_PROMPT.format(title=pick.title, abstract=pick.abstract))
+        data = llm.json(CARDS_PROMPT.format(papers=listing))
     except LLMError as exc:
-        log.error("Card for %s failed: %s", pick.arxiv_id, exc)
-        return fallback_card(pick)
-    if not isinstance(data, dict) or not data.get("in_short"):
-        return fallback_card(pick)
-    return {k: str(data[k]).strip() for k in CARD_FIELDS if data.get(k)}
+        log.error("Writing cards failed: %s", exc)
+        return [fallback_card(p) for p in picks]
+    return parse_cards(data, picks)
 
 
 def weekly_big_picture(picks: list[Pick], llm: Gemini) -> dict:

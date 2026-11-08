@@ -114,7 +114,7 @@ def parse_scores(data: object, papers: list[Paper], topics: Topics) -> list[Pick
 
 
 def score_papers(
-    papers: list[Paper], topics: Topics, llm: Gemini, batch_size: int = 20
+    papers: list[Paper], topics: Topics, llm: Gemini, batch_size: int = 30
 ) -> list[Pick]:
     picks: list[Pick] = []
     for start in range(0, len(papers), batch_size):
