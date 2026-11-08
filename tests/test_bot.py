@@ -5,7 +5,7 @@ from zoneinfo import ZoneInfo
 import pytest
 
 from src.arxiv_client import Paper, build_query, parse_feed, preselect, tag_themes
-from src.llm import LLMError, _is_daily_quota, extract_json
+from src.llm import LLMError, _is_daily_quota, _is_retryable, extract_json
 from src.main import due_jobs, week_key, week_label
 from src.ranker import Pick, parse_scores, select_diverse
 from src.site import build_site
@@ -251,3 +251,9 @@ def test_build_site(tmp_path):
     assert (out / "days" / "2026-11-09.html").exists()
     assert "The big picture" in (out / "weeks" / "2026-W46.html").read_text()
     assert (out / "style.css").exists()
+
+
+def test_retryable_errors():
+    assert _is_retryable(Exception("503 UNAVAILABLE. high demand"))
+    assert _is_retryable(Exception("429 RESOURCE_EXHAUSTED"))
+    assert not _is_retryable(Exception("404 NOT_FOUND"))

@@ -27,9 +27,10 @@ def extract_json(text: str | None) -> Any:
         raise LLMError(f"response was not valid JSON: {exc}") from exc
 
 
-def _is_rate_limit(exc: Exception) -> bool:
+def _is_retryable(exc: Exception) -> bool:
+    """Rate limits (429) and temporary overload (500/503) are worth a retry."""
     text = str(exc)
-    return "429" in text or "RESOURCE_EXHAUSTED" in text
+    return any(code in text for code in ("429", "RESOURCE_EXHAUSTED", "500", "503", "UNAVAILABLE"))
 
 
 def _is_daily_quota(exc: Exception) -> bool:
@@ -72,7 +73,7 @@ class Gemini:
             except Exception as exc:  # SDK raises several error types
                 last_error = exc
                 log.warning("Gemini attempt %d failed: %s", attempt, exc)
-                if not _is_rate_limit(exc) or _is_daily_quota(exc):
+                if not _is_retryable(exc) or _is_daily_quota(exc):
                     break
                 time.sleep(20 * attempt)
         raise LLMError(str(last_error))
