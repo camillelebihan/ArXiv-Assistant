@@ -3,27 +3,11 @@
 from __future__ import annotations
 
 import os
-from dataclasses import dataclass, field
-
-DEFAULT_CATEGORIES = ["q-fin.ST", "q-fin.CP", "q-fin.PM", "q-fin.TR", "cs.LG"]
-DEFAULT_KEYWORDS = [
-    "finance",
-    "financial",
-    "stock",
-    "portfolio",
-    "trading",
-    "asset pricing",
-    "time series",
-    "foundation model",
-    "large language model",
-    "llm",
-]
+from dataclasses import dataclass
 
 
-def _split(value: str | None, default: list[str]) -> list[str]:
-    if not value:
-        return list(default)
-    return [item.strip() for item in value.split(",") if item.strip()]
+def _int(name: str, default: int) -> int:
+    return int(os.getenv(name, str(default)))
 
 
 @dataclass
@@ -31,29 +15,37 @@ class Config:
     telegram_token: str = ""
     telegram_chat_id: str = ""
     gemini_api_key: str = ""
-    gemini_model: str = "gemini-2.5-flash"
-    categories: list[str] = field(default_factory=lambda: list(DEFAULT_CATEGORIES))
-    keywords: list[str] = field(default_factory=lambda: list(DEFAULT_KEYWORDS))
-    max_papers: int = 8
-    lookback_hours: int = 36
-    send_time: str = "08:00"
+    gemini_model: str = "gemini-3.5-flash-lite"
+    gemini_interval: float = 4.0
+    topics_path: str = "topics.toml"
+    data_dir: str = "/data"
+    site_url: str = ""
     timezone: str = "Europe/Paris"
-    db_path: str = "/data/seen.db"
+    daily_hour: int = 7
+    weekly_hour: int = 9
+    daily_count: int = 7
+    weekly_count: int = 5
+    candidates: int = 60
+    lookback_hours: int = 96
 
     @classmethod
     def from_env(cls) -> Config:
         return cls(
-            telegram_token=os.getenv("TELEGRAM_BOT_TOKEN", ""),
-            telegram_chat_id=os.getenv("TELEGRAM_CHAT_ID", ""),
-            gemini_api_key=os.getenv("GEMINI_API_KEY", ""),
-            gemini_model=os.getenv("GEMINI_MODEL", "gemini-2.5-flash"),
-            categories=_split(os.getenv("ARXIV_CATEGORIES"), DEFAULT_CATEGORIES),
-            keywords=_split(os.getenv("KEYWORDS"), DEFAULT_KEYWORDS),
-            max_papers=int(os.getenv("MAX_PAPERS", "8")),
-            lookback_hours=int(os.getenv("LOOKBACK_HOURS", "36")),
-            send_time=os.getenv("SEND_TIME", "08:00"),
+            telegram_token=os.getenv("TELEGRAM_BOT_TOKEN", "").strip(),
+            telegram_chat_id=os.getenv("TELEGRAM_CHAT_ID", "").strip(),
+            gemini_api_key=os.getenv("GEMINI_API_KEY", "").strip(),
+            gemini_model=os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite").strip(),
+            gemini_interval=float(os.getenv("GEMINI_INTERVAL", "4")),
+            topics_path=os.getenv("TOPICS_PATH", "topics.toml"),
+            data_dir=os.getenv("DATA_DIR", "/data"),
+            site_url=os.getenv("SITE_URL", ""),
             timezone=os.getenv("TZ_NAME", "Europe/Paris"),
-            db_path=os.getenv("DB_PATH", "/data/seen.db"),
+            daily_hour=_int("DAILY_HOUR", 7),
+            weekly_hour=_int("WEEKLY_HOUR", 9),
+            daily_count=_int("DAILY_COUNT", 7),
+            weekly_count=_int("WEEKLY_COUNT", 5),
+            candidates=_int("CANDIDATES", 60),
+            lookback_hours=_int("LOOKBACK_HOURS", 96),
         )
 
     def missing(self) -> list[str]:

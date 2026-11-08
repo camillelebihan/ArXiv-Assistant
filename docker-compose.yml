@@ -1,9 +1,12 @@
+# Local use. In production the bot runs on GitHub Actions (.github/workflows/digest.yml);
+# don't run both at once or you'll get every digest twice.
 services:
   bot:
     build: .
     env_file: .env
     volumes:
       - bot-data:/data
+      - ./topics.toml:/app/topics.toml:ro   # edit topics without rebuilding
     restart: unless-stopped
 
 volumes:
