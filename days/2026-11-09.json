@@ -1,0 +1,275 @@
+{
+  "date": "2026-11-09",
+  "picks": [
+    {
+      "arxiv_id": "2611.09822v1",
+      "title": "Discovering formally verified quantum programs with AI",
+      "url": "https://arxiv.org/abs/2611.09822v1",
+      "authors": [
+        "Sergey Shirobokov",
+        "Ben Jaderberg",
+        "Katerina Hristova",
+        "George Tsoukalas",
+        "Johannes Bausch",
+        "Eric Wieser",
+        "Francisco J. H. Heras",
+        "Nicholas C. Rubin",
+        "Guang Hao Low",
+        "Sébastien Racanière",
+        "Nenad Tomašev",
+        "Lei M. Zhang",
+        "James Watson",
+        "Tanuj Khattar",
+        "Aws Albarghouthi",
+        "Stavan Jain",
+        "Harun Khan",
+        "Leopoldo Sarra",
+        "Andrew W. Senior",
+        "Michael Broughton",
+        "Hussain Masoom",
+        "Sergio Boixo",
+        "Ryan Babbush",
+        "Swarat Chaudhuri",
+        "Pushmeet Kohli"
+      ],
+      "abstract": "The timeline by which quantum computers can solve breakthrough problems in science depends on improved quantum algorithms as much as on better hardware. Such algorithmic advances are typically achieved through many years of expert human collaboration. In mathematics and computer science, large language models have accelerated progress through automated discovery loops. However, quantum algorithms can only be evaluated by classical computers on restricted or small instances. Here we demonstrate automated discovery of quantum programs beyond these regimes including order-of-magnitude improvements on scientific applications. To achieve this, we build a quantum program library in the Lean theorem prover in which large language model agents synthesize novel programs against formal problem specifications and verify their correctness and cost. Agent teams collaborate, sharing results and knowledge through wikis and discussing ideas at organized conferences. Our results improve on prior baselines for parallel search (up to 1.4x), quantum arithmetic (290x), and simulations relevant to fusion, photochemistry and drug-metabolism by 11x, 8x and 2.5x respectively. Combining human and artificial intelligence at scale, under the rigor of mathematical proof, lets researchers design algorithms that today's classical and quantum computers cannot test, shortening the path to practical quantum computation.",
+      "theme": "AI for science & deeptech",
+      "emoji": "🔬",
+      "scores": {
+        "novelty": 5,
+        "rigor": 5,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 5.0,
+      "card": {
+        "in_short": "Researchers used AI agents and mathematical proof verification to automatically discover and verify advanced quantum programs, achieving massive performance gains.",
+        "picture_it": "Like an automated factory where robots build and test complex engine parts inside a chamber of unbreakable mathematical laws.",
+        "key_term": "Lean theorem prover: A software tool that checks whether computer code strictly satisfies rigorous mathematical rules and specifications.",
+        "why_it_matters": "It could drastically shorten the time required to design quantum algorithms for drug discovery, material science, and clean energy.",
+        "future_signal": "AI-driven discovery paired with formal verification will likely become the standard way to program complex, high-stakes scientific infrastructure.",
+        "ask": "How do you ensure that these AI-discovered quantum algorithms actually work on near-term, noisy quantum hardware rather than just in simulation?"
+      },
+      "date": "2026-11-09"
+    },
+    {
+      "arxiv_id": "2611.08338v1",
+      "title": "GPWM: Modeling the World as 3D Particle Motion",
+      "url": "https://arxiv.org/abs/2611.08338v1",
+      "authors": [
+        "Robert Ren",
+        "Matthew Bronars",
+        "He Zhu",
+        "Yikai Tang",
+        "Jianing Zhang",
+        "Sergey Zakharov",
+        "Pavel Tokmakov",
+        "Katerina Fragkiadaki"
+      ],
+      "abstract": "We introduce GPWM, a Generative Particle World Model that predicts how 3D scenes evolve by generating the motion of particles and rigid bodies over time. Unlike video world models that generate scene appearance, GPWM operates directly in 3D physical space. A single representation and architecture cover rigid, deformable, cloth, and granular materials, in both passive physics and robotic interaction. GPWM is an object-aware multi-resolution transformer that combines flow matching with diffusion forcing to generate coherent physical trajectories far beyond its training horizon. We train and evaluate GPWM on ParticleWorlds, a 25.5-million-frame corpus spanning diverse geometries, materials, interactions, and robot embodiments. GPWM outperforms the best prior learned-dynamics baseline in each of six physical domains, reducing prediction error by 31% on average. Breaking from the domain-specific setting of prior methods, a single Unified GPWM models these heterogeneous regimes with one set of weights, largely outperforming per-domain baselines and even surpassing our own specialist models in two domains. GPWM further generalizes to unseen geometries, physical properties, object counts, and rollout horizons. Beyond prediction, GPWM enables contact-rich planning by learning a generative prior over joint actuator-object motion. Instead of searching over unconstrained actions, planning searches the model's latent noise for interactions that achieve a desired object-space goal. With the same world model, noise-space planning substantially outperforms action-space search on pushing and picking, where complex contact sequences are hard to discover. Executed open-loop in simulation, the resulting plans achieve goal-directed manipulation without reference action trajectories or goal-specific policies.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 5,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.8,
+      "card": {
+        "in_short": "The authors introduce a 3D particle-based world model that predicts how rigid, soft, and fluid materials move and interact over time.",
+        "picture_it": "Like a digital sandbox where tiny bouncing balls instantly simulate how a cloth drapes, water splashes, or a robot pushes a box.",
+        "key_term": "Flow matching: A machine learning technique used to generate complex trajectories by learning the velocity vector field that moves data points from noise to reality.",
+        "why_it_matters": "Robots can plan physical interactions much faster and more reliably by searching through a physical world model instead of trial and error.",
+        "future_signal": "World models are expanding beyond 2D video generation into true 3D physics engines that enable zero-shot robotic manipulation.",
+        "ask": "How does this particle-based model scale to handle millions of interacting objects without exploding in computational cost?"
+      },
+      "date": "2026-11-09"
+    },
+    {
+      "arxiv_id": "2611.09892v1",
+      "title": "On Agentic Manipulation Policies",
+      "url": "https://arxiv.org/abs/2611.09892v1",
+      "authors": [
+        "Chen Chen",
+        "Omid Bagherieh",
+        "Naveen Nikamanth Appiah Balaji",
+        "Jesse T. Gonzalez",
+        "Negin Heravi",
+        "Fahad Islam",
+        "Xueting Li",
+        "Jean-Baptiste Regli",
+        "Kejia Ren",
+        "Petr Švec",
+        "David J. Yoon",
+        "Matthias Müller",
+        "Vladlen Koltun"
+      ],
+      "abstract": "Recent work on robot manipulation has focused on specialist policies trained on demonstrations. We show that generalist AI models can control manipulators more reliably than specialist policies such as vision-language-action models (VLAs) and world-action models (WAMs). We systematically analyze agentic manipulation policies (AMPs), in which a generalist AI model commands the manipulator directly, adapting its actions as the task unfolds. We present AMP1, a reference harness that runs unchanged across single-arm, bimanual, and mobile manipulation. AMP1 achieves state-of-the-art results on the RoboLab-120 and CaP-Gym benchmarks, with no demonstrations or task-specific training. On RoboLab-120, AMP1 reaches an 85.6\\% success rate zero-shot, compared to 49.2\\% and 42.9\\% for leading VLA and WAM policies. The agent succeeds zero-shot in 104 of 108 real-world trials spanning twelve tasks and three robot instances, reducing failure rates by 20x and 15x relative to strong VLA and WAM baselines. The basic harness supplies no grasping, pushing, or placing skills; the agent develops its own strategies, such as searching for hidden objects, using objects as tools, and calibrating its cameras. With the addition of a persistent memory store, the agent can also learn from experience: an augmented harness with a memory representation that is carried across episodes lowers the failure rate on RoboDojo bimanual manipulation tasks by 4.6x relative to zero-shot deployment. Our analysis suggests that AMPs are substantially more general and robust than specialist manipulation policies, providing a promising foundation for robot manipulation.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 5,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.8,
+      "card": {
+        "in_short": "The paper demonstrates that generalist AI models can control robot arms directly and reliably without needing task-specific training or demonstrations.",
+        "picture_it": "Like a skilled human worker who walks into a completely unfamiliar room and figures out how to use the tools inside on the first try.",
+        "key_term": "Vision-language-action model (VLA): An AI model that takes camera images and text commands as input and directly outputs robot movement instructions.",
+        "why_it_matters": "It removes the massive bottleneck of collecting expensive human demonstration videos to train every single new robot capability.",
+        "future_signal": "Generalist AI agents will likely replace brittle, task-specific software pipelines in warehouse automation and home robotics.",
+        "ask": "Without task-specific demonstrations, how do you guarantee the robot won't execute unsafe or destructive movements in complex environments?"
+      },
+      "date": "2026-11-09"
+    },
+    {
+      "arxiv_id": "2611.08568v1",
+      "title": "Personalized health coaching via coachable health age and counterfactual wearable trajectories",
+      "url": "https://arxiv.org/abs/2611.08568v1",
+      "authors": [
+        "Simon A. Lee",
+        "Zeinab Esmaeilpour",
+        "Menglian Zhou",
+        "Marius Guerard",
+        "Sohrab Sidhu",
+        "Alexandru Solot",
+        "Hamid Palangi",
+        "Pramod Rudrapatna",
+        "Ming-Zher Poh",
+        "Max A. Xu",
+        "Daniel McDuff",
+        "Dimitrios Antos",
+        "Yuzhe Yang",
+        "Jeffrey N. Chiang",
+        "Anthony Z. Faranesh",
+        "Lindsey Sunden",
+        "Mark Malhotra",
+        "Shwetak Patel",
+        "A. Ali Heydari",
+        "Ahmed A. Metwally"
+      ],
+      "abstract": "Personalized health coaching requires moving beyond retrospective wearable summaries toward quantitative, actionable behavioral prescriptions. We introduce Coachable Health Age (CHA), an interpretable health-age metric built from modifiable physiological and behavioral signals passively captured by consumer wearables. Across the WEAR-ME (N=2,780), All of Us (N=22,748), and longitudinal Fitbit (N=1,464) cohorts, CHA aligns with established cardiometabolic health constructs and improves prognostic discrimination for incident cardiovascular and metabolic disease beyond age, sex, and body mass index. To enable prospective behavioral optimization, we developed Sensor World Model (SensorWM), an action-conditioned wearable world model pretrained on over 2.2 million person-weeks of longitudinal sensor data from approximately 100,000 participants. SensorWM accurately forecasts multi-week physiological responses to candidate lifestyle changes ($R^2=0.664$), outperforming generic time-series foundation models while preserving downstream clinical signal for diabetes, hypertension, and other health outcomes. Finally, we integrate CHA and SensorWM into an agentic counterfactual coaching system to synthesize personalized 12-week coaching plans. In blinded paired reviews, certified lifestyle coaches preferred counterfactual-grounded plans over plans grounded in wearable history alone for overall quality (71.4%, P < 0.001) and anticipated adherence (71.0%, P < 0.001), and board-certified clinicians judged 99.2% of counterfactual-grounded plans to meet clinical safety criteria (vs. 97.6% of comparison plans). Automated evaluations across the full cohort (N=2,780) also favored counterfactual-grounded plans. By closing the loop between longitudinal tracking, trajectory prediction, and counterfactual coaching, our framework provides a scalable path to systematically improve cardiometabolic health.",
+      "theme": "AI for health & food",
+      "emoji": "🧬",
+      "scores": {
+        "novelty": 5,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 4
+      },
+      "overall": 4.55,
+      "card": {
+        "in_short": "The researchers combined a wearable-based health age metric with a predictive world model to generate personalized, clinically safe lifestyle coaching plans.",
+        "picture_it": "Like a personal fitness coach who owns a crystal ball that shows exactly how your body will respond next month if you start running today.",
+        "key_term": "Counterfactual trajectory: A data-driven forecast of what would happen to a person's health metrics if a specific lifestyle change or intervention were applied.",
+        "why_it_matters": "Health tech companies can transition from passive fitness tracking to active, predictive coaching that prevents chronic metabolic diseases.",
+        "future_signal": "Wearables will evolve from simple step-counters into proactive medical co-pilots that continuously simulate personalized health outcomes.",
+        "ask": "How do you validate that the predicted physiological changes from the world model actually translate to long-term health improvements in real patients?"
+      },
+      "date": "2026-11-09"
+    },
+    {
+      "arxiv_id": "2611.08151v1",
+      "title": "Machine learning quantum data to accelerate quantum Monte Carlo",
+      "url": "https://arxiv.org/abs/2611.08151v1",
+      "authors": [
+        "Tong Jiang",
+        "Andrew Zhao",
+        "Shashwat Kumar",
+        "Jigyasa Nigam",
+        "Eliott Rosenberg",
+        "Ryan Babbush",
+        "Andrew D. Baczewski",
+        "William J. Huggins",
+        "Joonho Lee"
+      ],
+      "abstract": "Simulating strongly correlated electrons in molecules and materials remains a central goal for quantum computing. A promising strategy uses quantum processors to prepare trial wavefunctions that guide classical quantum Monte Carlo (QMC). However, the enormous computational cost of repeatedly processing quantum measurements has severely limited the practical scalability of this approach. Here, we overcome this bottleneck by compressing quantum measurement data into machine-learning models that efficiently provide the wavefunction overlaps needed by QMC. This accelerates quantum-classical QMC by orders of magnitude, enabling chemically accurate simulations on up to 40 qubits, more than doubling the scale of previous hardware demonstrations with comparable accuracy. We demonstrate our approach on hydrogen chains and strongly correlated iron-sulfur clusters using measurements from Google's Willow processor. By enabling efficient reuse of quantum-state information on the classical coprocessor, our framework addresses a fundamental bottleneck in hybrid quantum algorithms that will persist even into the fault-tolerant era.",
+      "theme": "Quantum computing",
+      "emoji": "⚛️",
+      "scores": {
+        "novelty": 5,
+        "rigor": 5,
+        "impact": 5,
+        "relevance": 3
+      },
+      "overall": 4.5,
+      "card": {
+        "in_short": "The authors compressed quantum measurement data into machine learning models to accelerate classical quantum Monte Carlo simulations by orders of magnitude.",
+        "picture_it": "Like replacing a massive stack of complicated blueprint calculations with a smart lookup table that instantly gives engineers the answers they need.",
+        "key_term": "Quantum Monte Carlo (QMC): A heavy computational method used to simulate the behavior of electrons in molecules and materials using statistical sampling.",
+        "why_it_matters": "It enables accurate chemical and material simulations at a scale previously impossible with hybrid quantum-classical hardware.",
+        "future_signal": "Machine learning will increasingly serve as the essential bridge that makes near-term quantum processors useful for industrial chemistry.",
+        "ask": "What limits the accuracy of the compressed machine-learning model when scaling up to even larger molecular systems beyond 40 qubits?"
+      },
+      "date": "2026-11-09"
+    },
+    {
+      "arxiv_id": "2611.08219v1",
+      "title": "Agent-R$^2$: Scaling Agents for Realistic Productivity Work via Real-Source Data Synthesis",
+      "url": "https://arxiv.org/abs/2611.08219v1",
+      "authors": [
+        "Teng Pan",
+        "Zixuan Wang",
+        "Yuchen Yan",
+        "Qifei Wu",
+        "Yao Chen",
+        "Yingqi Qu",
+        "Ruiqing Zhang",
+        "Yongliang Shen"
+      ],
+      "abstract": "Large language models have made rapid progress in agentic reasoning and tool use, raising expectations for agents that can take over realistic productivity work from humans. However, current agents still struggle to finish such tasks, where success requires following long-horizon professional workflows, understanding heterogeneous file contexts, and producing usable deliverables under fine-grained requirements. A key bottleneck is the lack of scalable post-training data that reflects real work intent, authentic file environments, and deliverable-level evaluation. To close this gap, we introduce Agent-R$^2$, a $\\textbf{r}$eal-source data synthesis framework that scales training data for $\\textbf{r}$ealistic productivity work. Instead of relying on manually specified workflows or LLM-generated files, Agent-R$^2$ grounds synthesis throughout the pipeline in real occupational seeds, corpus-derived workflow evidence, and authentic web-sourced files. From 10k web-corpus candidates, Agent-R$^2$ distills 4k task instances that pair real multi-format attachments with fine-grained, deliverable-level rubrics. On this data, we train Agent-R$^2$-4B via supervised fine-tuning and rubric-based reinforcement learning, improving both end-to-end productivity performance and file-grounded reasoning. Trained on only 4k instances, Agent-R$^2$-4B surpasses Qwen3-235B-A22B-Thinking-2507 on both GDPval (51.0$\\%$ vs. 48.0$\\%$) and OfficeQA (14.8$\\%$ vs. 13.8$\\%$). Further analysis shows that Agent-R$^2$ mitigates shortcut behavior, where agents produce superficially plausible deliverables before sufficiently grounding, constructing, or verifying them, while promoting sustained exploration.",
+      "theme": "AI agents",
+      "emoji": "🤖",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 5
+      },
+      "overall": 4.25,
+      "card": {
+        "in_short": "The authors built Agent-R^2, a data synthesis framework that generates realistic professional multi-file tasks to train productivity AI agents effectively.",
+        "picture_it": "Like creating a rigorous corporate training program with real company files and grading rubrics to teach an intern how to handle office work.",
+        "key_term": "Supervised fine-tuning: The process of training a pre-existing AI model on curated input-output pairs to teach it how to follow specific workflows or formats.",
+        "why_it_matters": "AI startups can train much smaller, highly efficient models that outperform massive LLMs on complex office productivity tasks.",
+        "future_signal": "The AI industry is shifting its focus from raw model scale to high-quality, task-specific data synthesis for enterprise automation.",
+        "ask": "How do you ensure the synthetic professional data covers edge cases and unexpected human errors that routinely happen in real office workflows?"
+      },
+      "date": "2026-11-09"
+    },
+    {
+      "arxiv_id": "2611.09891v1",
+      "title": "CPU-ARC: Agentic Reasoning Caching for on-CPU Reasoning Reuse",
+      "url": "https://arxiv.org/abs/2611.09891v1",
+      "authors": [
+        "Peter Belcak",
+        "Greg Heinrich",
+        "Saurav Muralidharan",
+        "Shizhe Diao",
+        "Pavlo Molchanov"
+      ],
+      "abstract": "Large language models reinvent the wheel all the time. They conflate task-solving with the execution of the solutions, which forces them to solve every problem from scratch. We show that once a task has been reasoned through, the application of its solution to a new problem instance can be done very efficiently and with little involvement from language models. We introduce agentic reasoning caching, a method for constructing robust CPU-executable agentic reasoning caches (ARCs) from LLM reasoning traces. ARCs show on-par performance with frontier LLMs across a range of difficult mathematical and scientific tasks, are fully explainable, continually trainable, robust to input perturbations, and 16-291x cheaper to invoke than the source model.",
+      "theme": "Frontier LLMs & reasoning",
+      "emoji": "🧠",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 5
+      },
+      "overall": 4.25,
+      "card": {
+        "in_short": "The paper introduces agentic reasoning caching, which saves and reuses completed LLM reasoning traces on cheap CPUs to slash the cost of complex problem-solving.",
+        "picture_it": "Like keeping a binder of solved math proofs on your desk so you never have to derive the same formula from scratch twice.",
+        "key_term": "Reasoning trace: The step-by-step logical thoughts and intermediate conclusions an AI generates before arriving at a final answer.",
+        "why_it_matters": "Companies can run advanced AI reasoning tasks at a fraction of the cost without relying on expensive frontier models every time.",
+        "future_signal": "AI architectures will increasingly separate expensive initial reasoning from cheap, cache-driven execution for routine problem-solving.",
+        "ask": "How does the cache handle minor variations in input prompts, or does it require the new problem to be an exact match to the stored trace?"
+      },
+      "date": "2026-11-09"
+    }
+  ]
+}
