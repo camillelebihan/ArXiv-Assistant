@@ -72,6 +72,19 @@ def pretty_day(day: str) -> str:
     return date.fromisoformat(day).strftime("%A %-d %B %Y")
 
 
+def nav(items: list[str], i: int, folder: str, label) -> str:
+    """Older / archive / newer links. `items` is sorted newest first."""
+    newer = items[i - 1] if i > 0 else None
+    older = items[i + 1] if i + 1 < len(items) else None
+    left = f'<a href="{older}.html">← {e(label(older))}</a>' if older else "<span></span>"
+    right = f'<a href="{newer}.html">{e(label(newer))} →</a>' if newer else "<span></span>"
+    return f'<nav class="pager">{left}<a href="../index.html#archive">All {folder}</a>{right}</nav>'
+
+
+def short_day(day: str) -> str:
+    return date.fromisoformat(day).strftime("%a %-d %b")
+
+
 def build_site(state: State, out_dir: str | Path) -> Path:
     out = Path(out_dir)
     (out / "days").mkdir(parents=True, exist_ok=True)
@@ -81,13 +94,16 @@ def build_site(state: State, out_dir: str | Path) -> Path:
 
     days, weeks = state.days(), state.weeks()
 
-    for day in days:
+    for i, day in enumerate(days):
         picks = state.load_day(day)
         cards = "".join(card(p) for p in picks) or '<p class="empty">No papers selected.</p>'
-        body = f'<h1>{e(pretty_day(day))}</h1><p class="lede">Daily briefing</p>{cards}'
+        pager = nav(days, i, "days", short_day)
+        heading = f'<h1>{e(pretty_day(day))}</h1><p class="lede">Daily briefing</p>'
+        body = f"{pager}{heading}{cards}{pager}"
         (out / "days" / f"{day}.html").write_text(page(pretty_day(day), body, "../"), "utf-8")
 
-    for week in weeks:
+    week_labels = {w: state.load_week(w).get("label", w) for w in weeks}
+    for i, week in enumerate(weeks):
         data = state.load_week(week)
         synthesis = data.get("synthesis", {})
         trends = "".join(f"<li>{e(t)}</li>" for t in synthesis.get("big_picture", []))
@@ -99,7 +115,8 @@ def build_site(state: State, out_dir: str | Path) -> Path:
             intro += "</section>"
         cards = "".join(card(p) for p in data["picks"])
         label = data.get("label", week)
-        body = f'<h1>Week in AI</h1><p class="lede">{e(label)}</p>{intro}{cards}'
+        pager = nav(weeks, i, "weeks", week_labels.get)
+        body = f'{pager}<h1>Week in AI</h1><p class="lede">{e(label)}</p>{intro}{cards}{pager}'
         (out / "weeks" / f"{week}.html").write_text(page(f"Week {label}", body, "../"), "utf-8")
 
     latest = ""
@@ -114,10 +131,10 @@ def build_site(state: State, out_dir: str | Path) -> Path:
         f'<li><a href="days/{d}.html">{e(pretty_day(d))}</a></li>' for d in days[:60]
     )
     week_links = "".join(
-        f'<li><a href="weeks/{w}.html">{e(state.load_week(w).get("label", w))}</a></li>'
+        f'<li><a href="weeks/{w}.html">{e(week_labels[w])}</a></li>'
         for w in weeks
     )
-    archive = '<section class="archive">'
+    archive = '<section class="archive" id="archive">'
     if week_links:
         archive += f"<div><h3>Weekly</h3><ul>{week_links}</ul></div>"
     if day_links:
