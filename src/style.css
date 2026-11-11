@@ -66,6 +66,11 @@ h1 { font-family: Georgia, "Times New Roman", serif; font-size: 34px; margin: 28
 .archive ul { list-style: none; padding: 0; margin: 0; }
 .archive li { margin: 4px 0; }
 .empty { color: var(--muted); }
+.pager { display: flex; justify-content: space-between; gap: 12px; margin: 20px 0 0;
+  font-size: 14px; }
+.pager > * { flex: 1; }
+.pager > :nth-child(2) { text-align: center; color: var(--muted); }
+.pager > :last-child { text-align: right; }
 footer { max-width: 760px; margin: 0 auto; padding: 0 16px 40px;
   color: var(--muted); font-size: 13px; }
 @media (max-width: 520px) {

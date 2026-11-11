@@ -289,3 +289,15 @@ def test_retryable_errors():
     assert _is_retryable(Exception("503 UNAVAILABLE. high demand"))
     assert _is_retryable(Exception("429 RESOURCE_EXHAUSTED"))
     assert not _is_retryable(Exception("404 NOT_FOUND"))
+
+
+def test_day_pages_link_to_neighbours(tmp_path):
+    state = State(tmp_path / "data")
+    for day in (9, 10, 11):
+        state.save_day(date(2026, 11, day), [make_pick(arxiv_id=str(day))])
+    out = build_site(state, tmp_path / "site")
+    middle = (out / "days" / "2026-11-10.html").read_text()
+    assert 'href="2026-11-09.html"' in middle and 'href="2026-11-11.html"' in middle
+    newest = (out / "days" / "2026-11-11.html").read_text()
+    assert 'href="2026-11-10.html"' in newest and "2026-11-12" not in newest
+    assert 'id="archive"' in (out / "index.html").read_text()
