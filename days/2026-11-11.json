@@ -1,0 +1,268 @@
+{
+  "date": "2026-11-11",
+  "picks": [
+    {
+      "arxiv_id": "2611.12177v1",
+      "title": "Embodied First Exam",
+      "url": "https://arxiv.org/abs/2611.12177v1",
+      "authors": [
+        "Kangrui Wang",
+        "Qineng Wang",
+        "Changhe Chen",
+        "Pingyue Zhang",
+        "Chi Gui",
+        "Feishi Wang",
+        "Canyu Chen",
+        "Wenli Xiao",
+        "Xiaoyu Huang",
+        "Tonghe Zhang",
+        "Linjie Li",
+        "Zihan Wang",
+        "Minyeong Kim",
+        "Yiyou Sun",
+        "Mingkai Deng",
+        "Jinyu Hou",
+        "Qi Zhu",
+        "Han Liu",
+        "Eric P. Xing",
+        "Huaxiu Yao",
+        "Zhiwen Fan",
+        "Yuejiang Liu",
+        "Dawn Song",
+        "Pieter Abbeel",
+        "Li Fei-Fei",
+        "Jiajun Wu",
+        "Yuke Zhu",
+        "Guanya Shi",
+        "Ruohan Zhang",
+        "Manling Li"
+      ],
+      "abstract": "Early successes on agentic robotics point to a potential paradigm shift toward using coding agents to control robots. Existing robotics benchmarks are built around visuomotor policy learning, leaving it open whether coding agents can reliably control diverse robots under physical-world constraints. We therefore introduce the Embodied First Exam, a unified, comprehensive, and agent-native evaluation framework where coding agents can choose their own control approach: direct control, code to control, or train a policy to control. We hope it serves as a first exam for coding agents before they enter the physical world, with 1,156 tasks in 35 suites on 47 robots, including 9 new suites that go beyond pick-and-place to spatial puzzles, dexterous manipulation, multi-robot interaction, dynamic whole-body control, and sim-to-sim engineering. Each task can be run in up to three evaluation settings. The Standard Setting mimics the real world: the agent receives only sensor observations and, by default, cannot reset the environment. Its Realtime variant keeps the environment running while the agent reasons. The Privileged Setting gives the agent access to the full simulator state and unlimited resets, allowing it to search for an oracle solution for training purposes. Success rates in this setting serve as an approximate upper bound. On the 456 core tasks, the strongest of eight agents, GPT-6 Astra in Codex, achieves a success rate of 34% in the Standard Setting, leaving much room for improvement. To see where agents fail, we label the stage at which failed attempts go wrong and compare failures across agents, settings, and stage categories.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.55,
+      "card": {
+        "in_short": "The paper introduces the Embodied First Exam, a comprehensive benchmark of over 1,000 tasks across 47 robots to test how well coding agents can control physical machines.",
+        "picture_it": "Like giving a robot programmer a rigorous driving test across dozens of bizarre vehicles before letting them onto real roads.",
+        "key_term": "Embodied First Exam: A unified evaluation framework designed to test coding agents on diverse robot hardware under physical-world constraints.",
+        "why_it_matters": "It establishes a standardized way to test whether LLM-driven software can safely and reliably pilot real-world robotic hardware.",
+        "future_signal": "Agentic robotics will increasingly rely on standardized coding benchmarks to prove physical competence before deployment.",
+        "ask": "How do you account for simulator-to-reality gaps when evaluating these coding agents on such a massive variety of robots?"
+      },
+      "date": "2026-11-11"
+    },
+    {
+      "arxiv_id": "2611.14115v1",
+      "title": "LEASH: Stay Safe in Agentic Robotics",
+      "url": "https://arxiv.org/abs/2611.14115v1",
+      "authors": [
+        "Qinfeng Zhu",
+        "Weiguang Zhao",
+        "Ke Sun",
+        "Xihao Guo",
+        "Yunxi Jiang",
+        "Rui Zhang",
+        "Lei Fan",
+        "Kaizhu Huang"
+      ],
+      "abstract": "Foundation models such as GPT and Claude have shown strong capabilities in spatial understanding and embodied intelligence. These advances make agentic robotics a promising path toward artificial general intelligence in robotics. However, we find that using foundation models to control robots poses serious safety risks, and comprehensive safety evaluation is still lacking. We introduce RoboRisk, a comprehensive benchmark for evaluating safety in agentic robotics. Its 92 simulated tasks and 13 physical-robot tasks fall into five categories: Task-level Refusal (T), Plan Repair (P), Execution-time Hazard (E), Injection (I), and Sequential Memory (S). Prior benchmarks cover at most two of these categories, and several evaluate only text outputs. In contrast, RoboRisk covers all five and executes every task in closed loop. We evaluate six state-of-the-art foundation models on RoboRisk: GPT-6 Astra, GPT-6.1 Sol, GPT-6 Luna, Claude Opus 5.5, Gemini 4 Argon, and Grok 4.7. These models generally show high harm rates. We also evaluate two robot-specific APIs: the Dream API and PokeBot's RoboAPI. We further propose the Lease-Enforced Agentic Safety Harness (LEASH), which offers essential safety infrastructure for agentic robotics and can be integrated into nearly any agentic architecture. LEASH leverages a decision model (Jev or OpenAI's Decisions API) to implement task, action, and commit gates, which review the task, each action, and each irreversible operation in their visual context. The planner and all three gates share a common safety policy. Experiments on RoboRisk in simulation and on physical robots show that LEASH effectively reduces harm across all six foundation models. It largely preserves their task completion performance and adds little time and token overhead.",
+      "theme": "Safety & interpretability",
+      "emoji": "🛡️",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.55,
+      "card": {
+        "in_short": "The researchers show that foundation models acting as robot controllers pose serious safety risks, and introduce a safety harness called LEASH to block dangerous actions.",
+        "picture_it": "Like installing an automatic emergency brake and a human-like spotter on a car driven by an overly confident teenager.",
+        "key_term": "LEASH (Lease-Enforced Agentic Safety Harness): A safety architecture that uses decision models to review tasks, actions, and irreversible operations against a common safety policy.",
+        "why_it_matters": "Companies can deploy powerful foundation models for robotics without risking catastrophic physical damage or security breaches.",
+        "future_signal": "Safety wrappers will become mandatory middleware for any commercial deployment of foundation models in physical systems.",
+        "ask": "How does LEASH handle split-second execution-time hazards without adding latency that disrupts smooth robot motion?"
+      },
+      "date": "2026-11-11"
+    },
+    {
+      "arxiv_id": "2611.11532v1",
+      "title": "DriveFoundry: Co-Evolving Data and Model for Efficient Closed-Loop Iteration in Autonomous Driving",
+      "url": "https://arxiv.org/abs/2611.11532v1",
+      "authors": [
+        "Ziyang Yao",
+        "Yuncheng Jiang",
+        "Fang Li",
+        "Haochen Liu",
+        "Shaoqing Xu",
+        "Wen Zhang",
+        "Xiangyang Chu",
+        "Zibin Guo",
+        "Jiale Hou",
+        "Chuang Wan",
+        "Jia Hua",
+        "Gengzhao Xiang",
+        "Xiaoran Luo",
+        "Chong He",
+        "Yuechen Luo",
+        "Junzhe Wang",
+        "Zhiyu Sun",
+        "Jun Zhang",
+        "Wei Li",
+        "Lei Li",
+        "Hongwei Xie",
+        "Bing Wang",
+        "Yuannan Shen",
+        "Jianwei Cui",
+        "Guang Chen",
+        "Hangjun Ye",
+        "Jingwei Zhao"
+      ],
+      "abstract": "A driving foundation model must learn reusable decision knowledge from rare critical events and apply it under strict runtime constraints. We introduce DriveFoundry, a closed-loop framework improving iteration efficiency under data and computation budgets by coupling structured causal data refinement with adaptive inference. The Data Engine builds traceable scene-candidate records linking scene evidence and factor-decision relations to candidate trajectories and outcome assessments. Candidate comparisons and counterfactual annotations clarify how scene factors affect behavioral feasibility and preference. Verified model failures guide VLM-assisted annotation and expert correction, refining training data and annotation systems. The model engine, Xiaomi-Drive-o1, unifies Perception, Causation, Action, World, and Value within a shared vision-language backbone to enable cross-task knowledge transfer. Block-wise latent refill passes candidate-specific evidence and predicted visual consequences between task blocks, connecting scene understanding, planning, and evaluation. A learned value-of-computation head selects tasks and allocates latent tokens based on expected benefit and cost, adapting inference to each decision. On PhysicalAI, the 9B model achieves the lowest ADE@1 across evaluated splits and horizons among tested models. In AlpaSim, it outperforms Alpamayo 1.5 across all metrics and achieves lower close-encounter and off-road rates than the 34B Alpamayo 2 Super, while trailing in progress and AlpaSim scores. For the 0.8B variant, joint training reduces 5 s minADE@6 by about 54% without altering the inference path or token budget. Adaptive inference matches full reasoning performance using only 28% of tokens. Real-vehicle tests confirm runtime feasibility, supporting a unified paradigm for learning from critical experience and dynamically allocating computation.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.55,
+      "card": {
+        "in_short": "The authors present DriveFoundry, an autonomous driving framework that couples structured causal data refinement with adaptive inference to improve data and compute efficiency.",
+        "picture_it": "Like a master driving instructor who diagnoses why a student made a mistake, rewrites the lesson plan, and teaches them to spend mental effort only on tricky intersections.",
+        "key_term": "Adaptive inference: A dynamic computation strategy that allocates processing tokens based on the expected benefit and cost of a given driving decision.",
+        "why_it_matters": "Autonomous vehicle companies can achieve higher safety and reasoning performance using a fraction of the usual computing power and training data.",
+        "future_signal": "Autonomous driving systems are shifting toward unified vision-language models that dynamically scale their reasoning effort per frame.",
+        "ask": "How does your value-of-computation head decide when a rare critical event warrants deeper reasoning without slowing down vehicle reaction times?"
+      },
+      "date": "2026-11-11"
+    },
+    {
+      "arxiv_id": "2611.13509v1",
+      "title": "Mobile AI Factory: Building Specialized Language Models for Your Mobile Device",
+      "url": "https://arxiv.org/abs/2611.13509v1",
+      "authors": [
+        "Evan Li",
+        "Krishna Deshpande",
+        "Wen Cheng",
+        "Shyamnath Gollakota"
+      ],
+      "abstract": "Small language models (SLMs) running on mobile devices can keep user data private and work without connectivity. But they perform well only when fine-tuned for the target task and sized for the target device, a process that today requires repeated expert tuning. We present {\\it Mobile AI Factory}, an agentic system that builds a fine-tuned, quantized SLM for a given task and phone. Given a task specification and a target phone, an orchestrator LLM chooses whether to tune hyperparameters, mine real data, or generate synthetic examples, while fixed rules roll back changes that hurt accuracy. The factory searches from small to large models across base models and quantizations, adapts its accuracy goal as it searches, and uses real measurements of the target phone across inference engines and backends. We evaluate Mobile AI Factory on ten tasks and four Android phones. On an unseen testset, its on-device models outperform two five-shot frontier models on five tasks, by up to 0.34, and match them on three more. Its search comes within 0.03 of exhaustively training all 27 model variants on an entity extraction task, while using 19$\\times$ less GPU time. Phone measurements also matter: the best configuration changes across phones. Without phone measurements, Claude Opus 5.5, given the full hardware and model specifications, misses the app's requirements in 25\\% of easy and moderate cases and in 60\\% of hard ones. Code is available at: https://github.com/evanly-gh/SLM_Factory.",
+      "theme": "AI agents",
+      "emoji": "🤖",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 5
+      },
+      "overall": 4.25,
+      "card": {
+        "in_short": "The paper introduces Mobile AI Factory, an agentic system that automatically builds, fine-tunes, and quantizes small language models tailored for specific tasks and mobile phones.",
+        "picture_it": "Like an automated tailor that measures a specific smartphone's hardware and instantly stitches together a custom-fit, highly efficient brain for it.",
+        "key_term": "Quantization: The process of reducing the precision of a model's weights to shrink its memory footprint and speed up execution on edge devices.",
+        "why_it_matters": "App developers can deploy high-performing, privacy-preserving AI features directly onto diverse user handsets without manual optimization.",
+        "future_signal": "App-specific custom language models generated on-demand will replace one-size-fits-all cloud APIs for mobile applications.",
+        "ask": "Why did real device measurements matter so much when cloud-based specifications failed to capture the requirements of target phones?"
+      },
+      "date": "2026-11-11"
+    },
+    {
+      "arxiv_id": "2611.13713v1",
+      "title": "Toward Autonomous RTL and Synthesis Optimization: Benchmarking and Self-Improving Agents",
+      "url": "https://arxiv.org/abs/2611.13713v1",
+      "authors": [
+        "Wenji Fang",
+        "Yao Lu",
+        "Jinghua Wang",
+        "Zhiyao Xie"
+      ],
+      "abstract": "Recent advances in large language models (LLMs) and autonomous agents are creating new opportunities for hardware design optimization. This paper examines three connected directions toward autonomous RTL and synthesis optimization: (1) Realistic benchmarking. We discuss reference-based and open-ended RTL optimization benchmarks that evaluate optimization opportunities under realistic EDA workflows. (2) Tool-grounded RTL optimization. We present Dr. RTL, a multi-agent framework that automates critical-path analysis, RTL rewriting, and implementation-level evaluation, while continuously improving through reusable optimization skills. Evaluated on 20 real-world RTL designs, Dr.~RTL achieves average WNS/TNS improvements of 21\\%/17\\% with a 6\\% area reduction over commercial synthesis. (3) Design-specific synthesis optimization. We explore agent-driven synthesis script tuning and the discovery of executable synthesis algorithms across intermediate representations, technology-independent optimization, and technology mapping. Finally, we envision AI-native design automation that jointly explores architectural, RTL, and EDA algorithm design spaces, guided by verification constraints and implementation feedback.",
+      "theme": "AI agents",
+      "emoji": "🤖",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 5
+      },
+      "overall": 4.25,
+      "card": {
+        "in_short": "The study benchmarks hardware design optimization and introduces Dr. RTL, a multi-agent framework that automates chip design improvements and outperforms commercial synthesis tools.",
+        "picture_it": "Like hiring a team of hyper-fast digital architects who constantly rewrite blueprints to make computer chips smaller, faster, and more efficient.",
+        "key_term": "RTL (Register-Transfer Level): A design abstraction used in circuit design that models the flow of digital signals between hardware registers.",
+        "why_it_matters": "Semiconductor companies can drastically cut the time and cost required to design complex, high-performance microchips.",
+        "future_signal": "AI agents will become core copilots in electronic design automation, optimizing silicon at every level from architecture to layout.",
+        "ask": "How does Dr. RTL ensure that its automated code rewrites do not introduce subtle, hard-to-catch timing or logic bugs into the silicon design?"
+      },
+      "date": "2026-11-11"
+    },
+    {
+      "arxiv_id": "2611.11910v1",
+      "title": "Late but Valuable: Why Deadlines Change the Measured Value of LLM Reasoning",
+      "url": "https://arxiv.org/abs/2611.11910v1",
+      "authors": [
+        "Sina Barazandeh",
+        "Benjamin E. Lundell",
+        "Jose Lugo-Martinez"
+      ],
+      "abstract": "Large language models (LLMs) increasingly plan and run experiments in automated laboratories. These experiments keep running while the model reasons and run on schedules with hard deadlines. If an LLM-generated answer arrives late, the system executes a safe fallback action instead, such as rejecting a sample. This creates a systems problem that standard serving metrics do not capture. An answer that matches the fallback adds no value, and answers that differ from the fallback may require more reasoning time. Reporting answer quality and latency separately can therefore overstate the value of reasoning. We test this on synthetic sample decisions, where the best choice is known exactly and a runtime enforces the deadline. We compare one LLM's fast mode, which answers directly, with its thinking mode, which reasons first. In a prespecified replay of 1,200 new decisions, thinking answers that missed a deadline were worth about five times as much as on-time ones. Multiplying the on-time rate by the mean answer value predicted about twice the value that thinking delivered. This prediction overstated thinking's advantage over fast mode by 0.0241 per decision, and by 0.0191 in a repeat on 300 new decisions. Both 95% confidence intervals excluded zero. In a single-GPU Qwen3-8B experiment using simultaneous request bursts, raising the number of requests from 8 to 56 reduced the share of thinking answers that met a 45 s deadline from 79.2% to 1.4%, although total output tripled. Evaluations of LLM agents for laboratories should therefore measure each answer's value and arrival time together and score the action that actually runs.",
+      "theme": "Frontier LLMs & reasoning",
+      "emoji": "🧠",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 4
+      },
+      "overall": 4.2,
+      "card": {
+        "in_short": "The researchers show that measuring LLM reasoning speed alongside answer quality is crucial because late answers that trigger safe fallbacks provide zero added value.",
+        "picture_it": "Like a bomb disposal expert who figures out the absolute best wire to cut, but takes too long to speak and triggers the safety mechanism anyway.",
+        "key_term": "Fallback action: A default, safe procedure executed by a system when an automated reasoner fails to deliver its answer before a hard deadline.",
+        "why_it_matters": "Laboratories and automated systems relying on LLMs must account for latency to avoid overestimating the true utility of slow reasoning models.",
+        "future_signal": "AI evaluation frameworks will increasingly incorporate hard temporal constraints and real-world system costs rather than just static accuracy.",
+        "ask": "How should automated laboratories balance the need for deep reasoning against the strict deadlines required by physical chemistry experiments?"
+      },
+      "date": "2026-11-11"
+    },
+    {
+      "arxiv_id": "2611.11690v1",
+      "title": "A Physical Testbed for Self-Driving Laboratories: Comparing Bayesian and Agentic Optimization in a Minimal Closed-Loop Color Formulation Task",
+      "url": "https://arxiv.org/abs/2611.11690v1",
+      "authors": [
+        "Tony Qin",
+        "Ziheng Wu",
+        "Maximilian Schommer",
+        "Roya Amini-Naieni",
+        "Aldair Gongora"
+      ],
+      "abstract": "Self-driving laboratories (SDLs) integrate laboratory robotics and automation with AI-driven decision-making to close the design-build-test-learn (DBTL) cycle. However, physical testbeds that combine off-the-shelf hardware and AI into a functioning closed-loop workflow remain in early stages of development, and their integration with commercial laboratory automation is comparatively less developed. In this work, we develop a physical testbed that assembles and integrates commercially available laboratory automation instruments and demonstrate continuous, closed-loop, autonomous operation over 24 cumulative hours of unattended experimentation. We validate this platform on a minimal closed-loop discovery task in which the system autonomously formulates aqueous dye mixtures to match a target absorbance spectrum. The system completed six independent campaigns, each consisting of 48 closed-loop iterations over approximately four hours. In every campaign, the system autonomously selected, dispensed, and measured each mixture, with an AI-driven decision-making algorithm determining subsequent formulations without human intervention. Using this testbed, we compared the performance of two AI-driven decision-making algorithms, traditional Bayesian optimization (BO) and an agentic approach, in selecting mixtures under a fixed total-volume constraint. The agentic optimizer matched target absorbance spectra using fewer iterations than BO, with reductions up to 52%, and converged on a solution for one target that BO failed to match within 48 iterations. These results demonstrate a reference physical platform for SDLs that can evaluate both established and emerging AI strategies, including large language model (LLM)-directed optimization, before their deployment in real-world applications where experiments may be costly and time-consuming to prepare.",
+      "theme": "AI for science & deeptech",
+      "emoji": "🔬",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 4
+      },
+      "overall": 4.1,
+      "card": {
+        "in_short": "The authors build a physical self-driving laboratory testbed and show that an agentic optimizer can formulate chemical mixtures faster and more effectively than traditional Bayesian optimization.",
+        "picture_it": "Like an automated chemistry lab assistant that learns from each failed color batch and intelligently guesses the next recipe much faster than standard math formulas.",
+        "key_term": "Self-driving laboratory (SDL): An automated scientific research platform that integrates robotics with AI to autonomously execute the design-build-test-learn cycle.",
+        "why_it_matters": "Chemical, pharmaceutical, and materials science companies can accelerate material discovery by letting AI agents autonomously run closed-loop physical experiments.",
+        "future_signal": "Agentic AI will increasingly direct physical laboratory hardware, replacing rigid statistical methods with flexible reasoning loops.",
+        "ask": "What specific capabilities allowed the agentic optimizer to converge on solutions where traditional Bayesian optimization failed?"
+      },
+      "date": "2026-11-11"
+    }
+  ]
+}
