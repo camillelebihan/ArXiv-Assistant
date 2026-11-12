@@ -1,0 +1,234 @@
+{
+  "date": "2026-11-12",
+  "picks": [
+    {
+      "arxiv_id": "2611.14504v1",
+      "title": "Emergent Biological Capabilities in a Foundation Model for Molecular Interactions",
+      "url": "https://arxiv.org/abs/2611.14504v1",
+      "authors": [
+        "Adi Mashiach"
+      ],
+      "abstract": "Foundation models trained on large unlabeled corpora develop emergent capabilities, tasks that go beyond the training objective. We extend this paradigm to multimodal biology with Bonbon, a foundation model for molecular interactions trained on approximately 3.2 trillion tokens of paired protein-ligand sequences. From a single representation space, Bonbon exhibits three zero-shot emergent capabilities at hierarchical levels of resolution: functional (mechanism of action), residue (binding site localization, including orthosteric/allosteric discrimination), and bond (covalent versus non-covalent engagement). All three capabilities generalize to out-of-distribution complexes. Bonbon was trained on protein-ligand sequences alone, without any task-specific supervision and without structural coordinates. We conducted controlled scaling experiments across six model scales from 42M to 1.6B parameters; every capability evaluated shows a sharp jump at the largest scale on continuous metrics, even as pretraining loss decreases smoothly. This demonstrates that loss-based scaling laws alone are insufficient to predict when zero-shot emergent capabilities become available. The capabilities reported here emerge after training at a 1:2,000 parameter-to-token ratio to accommodate the sparsity of paired biological interaction data. The same frozen representations achieve state-of-the-art binding and affinity prediction at five orders of magnitude greater speed than co-folding methods. In prospective wet-lab validation across nine disease targets spanning seven protein families, Bonbon achieves a 61.5% dose-response hit rate on de novo compounds, yielding structurally novel molecules not previously reported to inhibit these proteins, including for out-of-distribution targets.",
+      "theme": "AI for science & deeptech",
+      "emoji": "🔬",
+      "scores": {
+        "novelty": 5,
+        "rigor": 5,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 5.0,
+      "card": {
+        "in_short": "Bonbon is a molecular foundation model trained on protein-ligand sequences that predicts interactions, identifies binding sites, and discovers active de novo compounds.",
+        "picture_it": "Like a master locksmith who can look at a key blank and instantly guess the shape of locks it will open without ever seeing them.",
+        "key_term": "Zero-shot emergent capabilities: Skills that appear in a model at scale without having been explicitly trained or supervised for those specific tasks.",
+        "why_it_matters": "Drug discovery companies can bypass slow structural co-folding methods, drastically speeding up candidate molecule generation and wet-lab validation.",
+        "future_signal": "Foundation models trained purely on sequence data will increasingly bypass traditional physics-based simulations in early-stage biological R&D.",
+        "ask": "How do you ensure that scaling sequence-only models won't hit a hard ceiling where physical 3D structural data becomes strictly necessary?"
+      },
+      "date": "2026-11-12"
+    },
+    {
+      "arxiv_id": "2611.12791v1",
+      "title": "Large Language Models as a Universal Searcher for Open-World Automated Machine Learning",
+      "url": "https://arxiv.org/abs/2611.12791v1",
+      "authors": [
+        "Yuxuan Hu",
+        "Jihao Liu",
+        "Weikang Shi",
+        "Xijie Huang",
+        "Linda Wei",
+        "Mingjie Zhan",
+        "Aojun Zhou",
+        "Rui Liu",
+        "Hongsheng Li"
+      ],
+      "abstract": "Developing effective machine learning models requires complex manual tuning, while current Automated Machine Learning (AutoML) frameworks remain domain-specific and isolate model architecture, training hyperparameter, and data ratio optimization. Here, we bridge this gap by proposing a universal, large language model (LLM)-based AutoML framework that jointly optimizes these configurations for the first time without the need for task-specific fine-tuning. We propose NCode, a unified numerical encoding scheme that translates diverse AutoML design choices into universal discrete sequences and effectively reframes the optimization process as a unified ranking task. Trained solely on optimization trajectories derived from a limited, single-domain vision task, the proposed LLM-based searcher demonstrates impressive cross-task, cross-modality and joint search-space optimization generalizability, achieving state-of-the-art performance across image classification, image segmentation, speaker verification and text-to-image benchmarks. Crucially, it exhibits superior scalability in the large-scale training and joint optimization of a billion-parameter Diffusion Transformer, requiring 896 GPU-days and attaining a state-of-the-art GenEval score of 0.91. By leveraging reinforcement learning to instill Chain-of-Thought reasoning, we provide a systematic way to interpret the LLM-based searcher's internal decision-making mechanisms, revealing its optimization strategy shifted from the early-stage diversity-driven exploration to the late-stage anchor exploitation. Our proposed framework provides a scalable, generalizable, and interpretable pathway toward general-purpose open-world machine learning optimization.",
+      "theme": "Frontier LLMs & reasoning",
+      "emoji": "🧠",
+      "scores": {
+        "novelty": 5,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.8,
+      "card": {
+        "in_short": "NCode uses a large language model and numerical encoding to universally optimize machine learning architectures, hyperparameters, and data ratios across multiple modalities.",
+        "picture_it": "Like a universal mechanic who can tune a spaceship engine, a lawnmower, and a bicycle using the exact same set of diagnostic rules.",
+        "key_term": "AutoML (Automated Machine Learning): The process of automating the tasks of applying machine learning to real-world problems.",
+        "why_it_matters": "AI engineering teams can automate the grueling trial-and-error process of model tuning, saving thousands of GPU-days and engineering hours.",
+        "future_signal": "LLMs are shifting from passive code assistants to active, self-correcting optimization agents capable of managing large-scale infrastructure training end-to-end.",
+        "ask": "What prevents the LLM searcher from hallucinating non-viable hyperparameter configurations during long-horizon search trajectories?"
+      },
+      "date": "2026-11-12"
+    },
+    {
+      "arxiv_id": "2611.12856v1",
+      "title": "WorkflowArena: Benchmarking Executable Workflow Orchestration in LLM-Based Multi-Agent Systems",
+      "url": "https://arxiv.org/abs/2611.12856v1",
+      "authors": [
+        "Zheng Jiang",
+        "Fang Niu",
+        "Bo Peng",
+        "Houde Qian",
+        "Wenyi Li",
+        "Deyao Hong",
+        "Mingju Gao",
+        "Yizhe Chi",
+        "Youjie Zheng",
+        "Kaisen Yang",
+        "Calvin Xiao",
+        "Lifeng Sun",
+        "Huan-ang Gao"
+      ],
+      "abstract": "Large language model agents are increasingly deployed as multi-agent systems rather than as a standalone model operating within a single context. Recent agent harnesses allow the model to instantiate worker agents and to author the executable workflow that coordinates them, shifting the design of system structure from developers to the model at run time. The quality of this organization therefore constitutes a distinct capability, yet existing benchmarks either measure end-to-end task completion or evaluate coordination under structures specified in advance. We formalize this capability as workflow orchestration and introduce WorkflowArena, a benchmark of 145 long-horizon tasks spanning 8 professional domains, from software engineering and formal mathematics to legal analysis and 3D production. Each task specifies an initial workspace and an integrated deliverable composed of interdependent components, which is assessed by a hidden verifier. Agents determine autonomously whether and how to delegate, and all delegation is recorded, enabling joint evaluation of deliverable quality and the organization of the underlying work. Experiments with nine models show that no single configuration performs best across all domains and that systems exhibit distinct delegation strategies: at high effort, Claude models in Claude Code invoke workflows less frequently but with larger worker groups, whereas GPT models in Codex delegate more frequently in smaller units. When the executing model is held fixed on a challenging subset of tasks, workflows authored by Claude Opus 5.5 substantially improve weaker executors, indicating that workflow organization is itself a measurable determinant of task performance.",
+      "theme": "AI agents",
+      "emoji": "🤖",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 5
+      },
+      "overall": 4.25,
+      "card": {
+        "in_short": "WorkflowArena benchmarks how well AI models autonomously organize and delegate multi-agent workflows to solve complex, long-horizon professional tasks.",
+        "picture_it": "Like an executive hiring a team of specialized interns, dividing a huge project into pieces, and managing them to deliver a final report.",
+        "key_term": "Workflow orchestration: The automated coordination, instantiation, and management of interdependent tasks across multiple worker agents.",
+        "why_it_matters": "Enterprises can deploy multi-agent systems that dynamically structure their own workforce rather than relying on rigid, human-designed agent pipelines.",
+        "future_signal": "Model quality will increasingly be judged by managerial competence—how well a model delegates to others—rather than just isolated single-turn answers.",
+        "ask": "Why do different model families like Claude and GPT adopt such drastically different delegation strategies for the same tasks?"
+      },
+      "date": "2026-11-12"
+    },
+    {
+      "arxiv_id": "2611.13393v1",
+      "title": "Plumbline: When the Loss Lies, Validating LLM Training Correctly",
+      "url": "https://arxiv.org/abs/2611.13393v1",
+      "authors": [
+        "Ruochen Wen",
+        "Hongyang Wang",
+        "Siwei Li",
+        "Wenbo Chen",
+        "Xian Li",
+        "Jingguo Liu",
+        "Leo Fan",
+        "Yiming Yan",
+        "Qian Qu",
+        "Zheshen Wang",
+        "Benoit Dumoulin"
+      ],
+      "abstract": "Correctness is a prerequisite for training large language models (LLMs) at scale, yet it is hard to ensure: a fault can sit in any part of a run, and how it shows differs across frameworks and the libraries they depend on. Some failures are loud and some are silent, and both take time to detect and trace. A single fault can waste a long run: the run crashes late, or the model scores lower only at the final evaluation. We present Plumbline, a correctness validation system for LLM training, used in production at Amazon. Plumbline checks each part of the training lifecycle, from the data a run trains on to the model it serves, down to the new layers each model brings and up to whole runs. Its diagnosis reuses these checks to trace failures to their root causes. Both rest on a systematic correctness methodology designed to carry across models and frameworks. Plumbline supports two agentic use cases: Day-0 onboarding, which validates the training of a newly released model before teams rely on it, and root-cause tracing of training failures. Across 3 frameworks and 5 models, it found 61 problems, 32 of them silent. Of these, 42 are fixed or reported upstream, 8 of them first raised by us. We further group the 61 into seven failure patterns that show where training breaks, and report how problems recur across frameworks and models.",
+      "theme": "Frontier LLMs & reasoning",
+      "emoji": "🧠",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 5
+      },
+      "overall": 4.25,
+      "card": {
+        "in_short": "Plumbline is a production-grade validation system that detects both silent and loud faults across the entire LLM training lifecycle to prevent wasted runs.",
+        "picture_it": "Like an automated inspection line in a factory that catches tiny, invisible hairline fractures in engine parts before the car hits the road.",
+        "key_term": "Silent failure: A bug or error during model training that does not crash the system, but silently degrades the final model's performance.",
+        "why_it_matters": "Cloud providers and AI labs can save millions of dollars in wasted compute by catching silent training corruptions early.",
+        "future_signal": "Automated verification and root-cause tracing agents will become standard infrastructure components in all large-scale foundation model training runs.",
+        "ask": "What are the most common silent failure patterns you see when scaling up training across heterogeneous hardware clusters?"
+      },
+      "date": "2026-11-12"
+    },
+    {
+      "arxiv_id": "2611.13710v1",
+      "title": "AutoManifold: Agentic Design of Data Visualisation Algorithms via Manifold Embedding",
+      "url": "https://arxiv.org/abs/2611.13710v1",
+      "authors": [
+        "Burak Susam",
+        "Ruiyuan Kang",
+        "Tingting Mu"
+      ],
+      "abstract": "Manifold embedding for data visualisation is dominated by a small set of hand-designed state-of-the-art (SOTA) algorithms. Their design targets are fixed at development time, resulting in inflexible algorithmic behaviour that cannot be readily steered towards user-specified structural priorities. Hand-designing new embedding algorithms to address user priority requires highly specialised expertise and is time consuming. To address autonomous algorithm design tailored to user preference, we introduce an agentic algorithm generation pipeline AutoManifold. It composes new manifold embedding algorithms from a constrained vocabulary of affinity, cost, and optimisation primitives, supported by multi-agent large-language-model (LLM) orchestration. AutoManifold conditions every stage of its design on user-specified structural preservation preferences, and iteratively refines the algorithm configuration through an LLM-guided, metric-grounded iterative loop. We compare the generated algorithms against the three strongest and most frequently used SOTA methods (t-SNE, UMAP, and PaCMAP) on real-world datasets spanning different difficulty regimes under identical evaluation infrastructure. The results demonstrate that LLM-driven, priority-conditioned algorithm synthesis can move beyond hyperparameter tuning, producing genuinely new algorithms that outperform traditional hand-designed methods in their ability to steer towards user-specified properties without compromising the intrinsic structure in the original data. The code of AutoManifold is available at https://github.com/buraksusam/AutoManifold_NeurIPS2026.",
+      "theme": "AI agents",
+      "emoji": "🤖",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 4
+      },
+      "overall": 4.2,
+      "card": {
+        "in_short": "AutoManifold uses an LLM agentic pipeline to design custom data visualization algorithms that adapt to user-specified structural priorities.",
+        "picture_it": "Like a cartographer who dynamically reshapes a world map to emphasize population density rather than land mass based on a client's request.",
+        "key_term": "Manifold embedding: A technique that projects high-dimensional data into a lower-dimensional space while preserving the structural relationships between points.",
+        "why_it_matters": "Data scientists can generate bespoke visualization algorithms on the fly, tailoring data exploration to specific analytical priorities without manual coding.",
+        "future_signal": "Algorithm design is transitioning from hand-crafted human development to automated, LLM-guided synthesis optimized for specific human preferences.",
+        "ask": "How do you mathematically guarantee that the LLM-generated manifold algorithm isn't distorting the true intrinsic structure of the underlying data?"
+      },
+      "date": "2026-11-12"
+    },
+    {
+      "arxiv_id": "2611.11981v1",
+      "title": "Thermo-VLA: A Thermal-Aware Vision-Language-Action Model with Gated Residual Modulation for Robotic Manipulation",
+      "url": "https://arxiv.org/abs/2611.11981v1",
+      "authors": [
+        "Jingxuan Chen",
+        "Junshi Luo",
+        "Chencheng Dong",
+        "Xiaojian Nie",
+        "Tongge Huang",
+        "Qiang Huang"
+      ],
+      "abstract": "Recent Vision-Language-Action (VLA) models have begun incorporating thermal sensing, but existing approaches typically treat thermal images as ordinary visual inputs, providing limited support for temperature-aware relational reasoning in manipulation. To address this limitation, we propose Thermo-VLA with a ThermoRes Encoder, which decomposes thermal images into cold and hot attribute representations and injects them into the RGB token through language-conditioned residual modulation, enabling temperature-driven target selection and continuous manipulation. We further construct six real-world robotic tasks on a dual-arm Unitree G1 platform, spanning basic grounding to relational reasoning. Experiments show that Thermo-VLA achieves an average success rate of 0.86 across four thermal-dependent tasks, outperforming a pi_0.5 baseline that directly incorporates RGB-thermal observations by 18 percentage points. Under unseen-object and scene variations, Thermo-VLA maintains an average success rate of 0.78, achieving the best generalisation performance among the compared methods. Beyond thermal sensing, we transfer the same residual modulation mechanism to colour attributes and observe consistent improvements in both simulation and real-robot experiments, indicating its potential to generalise beyond thermal attributes. Project website: https://j-x-chen.github.io/Thermo-VLA-web/",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 4
+      },
+      "overall": 4.2,
+      "card": {
+        "in_short": "Thermo-VLA integrates thermal sensing into vision-language-action models using gated residual modulation to improve temperature-aware robotic manipulation.",
+        "picture_it": "Like a chef who can instantly tell if a pan is hot just by looking at it and adjusting their grip strength accordingly.",
+        "key_term": "Residual modulation: A technique that injects auxiliary feature representations into a primary neural stream through controlled, gated adjustments.",
+        "why_it_matters": "Robotics companies can deploy dual-arm robots capable of safely handling hot, cold, or temperature-sensitive objects in real-world environments.",
+        "future_signal": "Embodied AI models are moving beyond standard RGB vision to seamlessly fuse multi-spectral sensory inputs for contact-rich physical tasks.",
+        "ask": "Does this residual modulation approach scale effectively to other non-visual modalities like tactile or acoustic sensing?"
+      },
+      "date": "2026-11-12"
+    },
+    {
+      "arxiv_id": "2611.13034v1",
+      "title": "RoboACE: Adversarial Co-Evolution for Robot Self-Improvement",
+      "url": "https://arxiv.org/abs/2611.13034v1",
+      "authors": [
+        "Delin Zhao",
+        "Zhengrong Yue",
+        "Junlin He",
+        "Yali Wang"
+      ],
+      "abstract": "Robot agents can improve reusable skills, planning procedures, and recovery strategies from execution feedback, yet a fixed practice source leaves the search for new weaknesses unchanged. Useful practice depends on the agent's current capabilities, so the procedure that chooses practice must also be revisable. We present RoboACE (Robot Adversarial Co-Evolution), a framework that jointly evolves curriculum and execution harnesses around frozen foundation models. The curriculum harness uses accumulated capability evidence to propose informative challenges, while the execution harness responds with reusable revisions that expand execution capabilities. Alternating updates hold one side fixed as the other changes, and admitted challenges form fixed snapshots for comparing execution revisions. Starting from a compact set of LIBERO practice conditions, the resulting frozen deployment outperforms the evaluated controllers and agent systems across four LIBERO-family panels. On LIBERO-PRO, it reaches 74.0% success, exceeding the initial deployment by 15.0 percentage points and direct execution by its VLA controller by 13.5 points. Case studies document changes to evidence-guided practice selection, drawer-skill grounding, and controller intervention.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 4
+      },
+      "overall": 4.2,
+      "card": {
+        "in_short": "RoboACE uses an adversarial co-evolution framework to jointly evolve training challenges and robot execution strategies for continuous self-improvement.",
+        "picture_it": "Like a martial arts champion and a sparring partner who constantly invent new counter-moves against each other to level up their skills.",
+        "key_term": "Adversarial co-evolution: A process where two competing agents or components mutually drive each other's adaptation and capability gains.",
+        "why_it_matters": "Robotics developers can automate the post-deployment improvement of robot skills without needing exhaustive, hand-engineered practice curricula.",
+        "future_signal": "Robot self-improvement loops will rely less on static human demonstrations and more on autonomous, self-generated adversarial practice environments.",
+        "ask": "How do you prevent the adversarial curriculum from generating physically impossible or irrelevant tasks that degrade the robot's real-world policies?"
+      },
+      "date": "2026-11-12"
+    }
+  ]
+}
