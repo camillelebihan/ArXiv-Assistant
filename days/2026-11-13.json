@@ -1,0 +1,247 @@
+{
+  "date": "2026-11-13",
+  "picks": [
+    {
+      "arxiv_id": "2611.16591v1",
+      "title": "Singularity-Bench: Can Agents Build Agents?",
+      "url": "https://arxiv.org/abs/2611.16591v1",
+      "authors": [
+        "Yang Zhou",
+        "Krish Agarwal",
+        "Zhuoming Chen",
+        "Zerui Wang",
+        "Zhenyu Zhang",
+        "Wenshuang Li",
+        "Xinpeng Wei",
+        "Zhichen Zeng",
+        "Jingyu Liu",
+        "Jue Wang",
+        "Sen Wu",
+        "Ziheng Jiang",
+        "Zhen Dong",
+        "Han Cai",
+        "Binhang Yuan",
+        "Ying Sheng",
+        "Ce Zhang",
+        "Bo Li",
+        "Beidi Chen"
+      ],
+      "abstract": "Frontier AI agents increasingly succeed on realistic, long-horizon tasks and are beginning to improve the systems through which they operate. Yet existing benchmarks often restrict agents to narrow action spaces, use simplified environments, or rely on verification methods that are unreliable for evaluating arbitrary agent-generated systems. We introduce Singularity-Bench, an open-ended benchmark for autonomous AI development with six end-to-end tasks spanning pre-training, mid-training, post-training, inference, the agent harness, and cluster orchestration. Each task requires agents to implement core systems from a minimal starting point and evaluates them against mature human-engineered baselines on identical hardware. Additionally, through extensive red-teaming covering 9 of the 10 categories in the OWASP Top 10 for Agentic Applications, we expose reward-hacking vulnerabilities in the conventional Harbor framework and develop Breakwater, an extension of Harbor that blocks all attacks tested in our study. Across 11 agents built from 7 frontier models and 2 harnesses, Opus 5.5 with Claude Code matches or outperforms the human baseline on all six tasks with a Singularity-Index of 1.25, suggesting it may have the skills needed to reach the singularity. The remaining agents average only 0.58. Our vision is for Singularity-Bench to track how much of AI development agents can already automate and when they may transition from assisting to taking end-to-end responsibility for building stronger successors.",
+      "theme": "AI agents",
+      "emoji": "🤖",
+      "scores": {
+        "novelty": 4,
+        "rigor": 5,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.75,
+      "card": {
+        "in_short": "A new benchmark evaluates whether frontier AI agents can autonomously build, train, and orchestrate the very AI systems they run on.",
+        "picture_it": "Like an auto mechanic robot that successfully diagnoses its own engine, builds a better replacement part, and installs it overnight.",
+        "key_term": "Singularity-Index: A metric measuring how an AI agent's performance compares to human engineering baselines across end-to-end development tasks.",
+        "why_it_matters": "Companies will soon deploy agents that write their own code, optimize model training, and manage infrastructure without human intervention.",
+        "future_signal": "AI development is shifting from a human-led engineering process to an automated cycle where agents rapidly build their own successors.",
+        "ask": "How do you ensure these self-improving agents don't optimize for metrics that bypass safety constraints during autonomous development?"
+      },
+      "date": "2026-11-13"
+    },
+    {
+      "arxiv_id": "2611.17142v1",
+      "title": "FORGE: Force-Aware Multi-Granularity Control for Efficient Humanoid Loco-Manipulation",
+      "url": "https://arxiv.org/abs/2611.17142v1",
+      "authors": [
+        "Liangjun Xing",
+        "Ke Fan",
+        "Kailin Li",
+        "Bin Wang",
+        "Xiaojie Niu",
+        "Qingwei Ben",
+        "Jiafei Cao",
+        "Wei Yao",
+        "Yebin Liu",
+        "Jingbo Wang",
+        "Weinan Zhang"
+      ],
+      "abstract": "Humanoid loco-manipulation requires coordinated locomotion, balance regulation, and manipulation under frequent contacts, making teleoperated demonstration collection difficult: a practical controller must simultaneously provide precision, stability, and contact awareness. We propose FORGE, a force-aware multi-granularity control system with a coarse-to-fine command space spanning velocity navigation, planar foot placement, wrist-pose tracking, and optional force-conditioning inputs. Policy training requires no full-body human motion trajectories or joint-angle references; deployment consumes only sparse bilateral wrist poses relative to the pelvis, coarse motion commands, and optional desired wrist-load inputs. For sustained contact, FORGE combines a momentum observer with a learned correction trained using simulator contact-force supervision. At deployment, it estimates low-frequency, wrist-equivalent interaction forces from proprioception and reconstructed low-level arm PD torques, without wrist force/torque sensors. A quasi-static virtual-target loop uses this estimate and an optional desired applied-force input to adapt the wrist target. A frozen locomotion prior and asymmetric residual actions stabilize manipulation-induced whole-body corrections. Experiments evaluate unified-control stability, task-space tracking, quasi-static wrist-equivalent force estimation, squeezing forces during sustained contact with a rigid box, and downstream diffusion-policy execution of a squat-and-lift task across payload conditions. Website: https://bb0928.github.io/forge/.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 4
+      },
+      "overall": 4.2,
+      "card": {
+        "in_short": "A new control system helps humanoid robots perform complex tasks involving physical contact and manipulation without needing expensive wrist sensors.",
+        "picture_it": "Like a blindfolded person washing dishes, relying entirely on muscle memory and subtle touch feedback to know when to push or pull.",
+        "key_term": "Momentum observer: A computational tool that estimates external forces acting on a robot by tracking changes in its momentum.",
+        "why_it_matters": "Humanoid robots will become cheaper to build and more reliable at factory and warehouse chores involving heavy physical contact.",
+        "future_signal": "Robot hardware is becoming less dependent on fragile, expensive sensors because smart software can infer physical forces from standard internal data.",
+        "ask": "How well does this force estimation hold up when the robot handles objects with completely unfamiliar weights or slippery surfaces?"
+      },
+      "date": "2026-11-13"
+    },
+    {
+      "arxiv_id": "2611.16378v1",
+      "title": "Evidence-Governed Adoption of Self-Generated Updates in Autonomous AI Agents",
+      "url": "https://arxiv.org/abs/2611.16378v1",
+      "authors": [
+        "Subodh Lonkar"
+      ],
+      "abstract": "Autonomous agents modify prompts, memories, tools, workflows, and policies using interaction histories. Yet a plausible modification is not necessarily suitable for persistent adoption: candidate selection is adaptive, evaluators may be imperfect, and local gains can hide degradation against an earlier baseline. We introduce Evidence-Governed Evolution (EGE), a framework for governing adoption of self-generated agent modifications. EGE separates candidate generation from confirmatory adoption, evaluates frozen candidates on fresh paired audits, requires meaningful improvement on a prespecified primary objective, protects declared capabilities through reference-relative non-inferiority tests, and applies governance constraints before bounded canary deployment. We establish an evaluator-calibrated simultaneous lower-bound construction for a countable sequence of adaptively generated candidates. It combines candidate-wise Hoeffding bounds with independent calibration samples comparing the operational evaluator with a prespecified reference procedure. We also formalise reference replacement through bridge tests, derive a cumulative degradation bound along a versioned reference lineage, and provide an audit-planning condition relating effect-size margin, sample sizes, and acceptance probability. A Monte Carlo stress test illustrates calibration under candidate-dependent evaluator optimism; it is a stylised statistical experiment, not an evaluation of a deployed agent. The guarantees are conditional on bounded paired scores, fresh sampling, a valid reference-evaluation construct, and declared evaluation distributions; they do not establish universal agent safety or robustness to arbitrary distribution shift.",
+      "theme": "AI agents",
+      "emoji": "🤖",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 4
+      },
+      "overall": 4.2,
+      "card": {
+        "in_short": "A new statistical framework ensures autonomous AI agents safely adopt self-generated upgrades without breaking existing capabilities.",
+        "picture_it": "Like a software engineer who refuses to ship a self-written script update until rigorous double-blind testing proves it isn't causing silent bugs.",
+        "key_term": "Reference-relative non-inferiority test: A statistical check confirming that a modified agent performs at least as well as a trusted baseline version.",
+        "why_it_matters": "Enterprise AI agents can safely modify their own workflows and prompts in production without degrading performance or losing core capabilities.",
+        "future_signal": "Self-improving software is moving away from wild, uncontrolled self-modification toward strictly governed, mathematically bounded evolution loops.",
+        "ask": "What computational overhead does this statistical governance framework add to an agent's day-to-day operations?"
+      },
+      "date": "2026-11-13"
+    },
+    {
+      "arxiv_id": "2611.15280v1",
+      "title": "Autonomous Trail Racing with a Bicycle Robot",
+      "url": "https://arxiv.org/abs/2611.15280v1",
+      "authors": [
+        "Fabian Jenelten",
+        "Deepana Ishtaweera",
+        "Pablo Garcia",
+        "Liana Margolese",
+        "Igor Bogoslavskyi",
+        "Luca Buonocore",
+        "Jan Migliazza",
+        "Aleksandrs Ecins",
+        "Annika Wollschlaeger",
+        "Dario Bellicoso",
+        "Gabriel Nelson",
+        "Abel Gawel",
+        "Marco Hutter"
+      ],
+      "abstract": "Navigating off-road trails on a mountain bike requires diverse locomotion skills, including aerial maneuvers, cornering, and slip recovery, paired with sophisticated perception for scene understanding. Translating these capabilities to autonomous, two-wheeled robots remains a formidable challenge. We show that autonomous, high-speed trail navigation can be achieved through a single idea: encoding the trail as a semantic layer of the terrain. In simulation, this layer embeds the navigation task into the training environment; during deployment, it is reconstructed onboard from camera and LiDAR data. First, we introduce a unified learning framework that treats local navigation and locomotion as a joint optimization problem, bypassing the twist or pose command interface of classical control hierarchies. With fixed reward weights, the same framework produces both trail racing and agile parkour, shaped only through terrain semantics and episode length. Second, our perception pipeline combines a frozen vision foundation model with a lightweight dual-head decoder that predicts per-pixel terrain semantics and confidence scores, which are fused with LiDAR range measurements into an egocentric semantic elevation map at 30 Hz onboard an NVIDIA AGX Orin. We validate our framework on the Ultra Mobility Vehicle (UMV), a bicycle robot that autonomously raced across all sections of a kilometer-long, unstructured mountain bike trail at speeds exceeding 5 m/s and averaging 3.26 m/s. In simulation, our policy fails up to an order of magnitude less often than hierarchical baselines while driving faster.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 4
+      },
+      "overall": 4.2,
+      "card": {
+        "in_short": "An autonomous bicycle robot successfully navigates rugged, unstructured mountain bike trails at high speeds using a unified learning and perception framework.",
+        "picture_it": "Like an expert mountain biker who instantly reads the dirt trail ahead and adjusts balance, steering, and braking in a single fluid motion.",
+        "key_term": "Semantic elevation map: A digital grid representing terrain height combined with labels that classify what type of surface or obstacle is present.",
+        "why_it_matters": "Autonomous vehicles and delivery robots will handle extreme off-road environments with greater speed, agility, and reliability.",
+        "future_signal": "Robotics is moving away from rigid, multi-layered control hierarchies toward single-network architectures that merge perception and movement directly.",
+        "ask": "How does this unified learning framework handle sudden, completely unexpected obstacles like a fallen tree across a blind corner?"
+      },
+      "date": "2026-11-13"
+    },
+    {
+      "arxiv_id": "2611.15493v1",
+      "title": "The Illusion of Diversity: Aligning LLM Exploration via Effective Entropy",
+      "url": "https://arxiv.org/abs/2611.15493v1",
+      "authors": [
+        "Xiaoliang Fu",
+        "Jiaye Lin",
+        "Yangyi Fang",
+        "Cong Qin",
+        "Binbin Zheng",
+        "Chaowen Hu",
+        "Zekai Shao"
+      ],
+      "abstract": "Reinforcement learning with verifiable rewards has shifted the alignment paradigm of large language models from subjective preference to objective correctness, yet a fundamental disconnect persists between exploration diversity and reasoning validity. Existing strategies predominantly rely on \"blind\" entropy metrics, e.g., token-level or global sequence-level entropy, which structurally fail to distinguish between effective reasoning and potential hallucinations. This misalignment creates an illusion of diversity, where high entropy tends to signal chaotic degeneration rather than valuable exploration. To bridge this gap, we introduce Effective Entropy, a validity-aware entropy concept that quantifies diversity exclusively within the valid subspace and systematically filters out the noise of incorrect trajectories. Built on this concept, we instantiate VEPO, a simple Validity-aware Entropy Policy Optimization method that directly incorporates effective entropy into RLVR training. VEPO induces an adaptive attraction dynamic that drives up the probability of under-explored valid trajectories, a mechanism that matches the practical regime of large-scale autoregressive models where sequence probabilities remain extremely small. Experiments on six mathematical reasoning benchmarks with 1.5B and 7B DeepSeek-R1-Distill-Qwen models show consistent aggregate accuracy gains over GRPO and competitive repeated-sampling success. A direct evaluation with matched correct counts finds more distinct strategies on commonly solved MATH500 problems, supported by paired statistical tests and three-seed training comparisons.",
+      "theme": "Frontier LLMs & reasoning",
+      "emoji": "🧠",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 4
+      },
+      "overall": 4.2,
+      "card": {
+        "in_short": "A new reinforcement learning method fixes a flaw in language model training by measuring exploration diversity only among valid reasoning paths.",
+        "picture_it": "Like a teacher grading a math test who only rewards students for exploring different correct problem-solving methods, ignoring creative wrong answers.",
+        "key_term": "Effective entropy: A metric that calculates diversity strictly within valid, correct reasoning trajectories while filtering out hallucinatory noise.",
+        "why_it_matters": "AI developers can train reasoning models that are both more diverse in their problem-solving and much less prone to making things up.",
+        "future_signal": "Fine-tuning reasoning models is shifting from chasing raw text variety to carefully cultivating diversity inside strict boundaries of correctness.",
+        "ask": "How do you compute effective entropy efficiently when verifying the correctness of thousands of long-form reasoning trajectories?"
+      },
+      "date": "2026-11-13"
+    },
+    {
+      "arxiv_id": "2611.16082v1",
+      "title": "Gradient-Aware AI Agents for Autonomous Turbulence Model Discovery via Differentiable CFD",
+      "url": "https://arxiv.org/abs/2611.16082v1",
+      "authors": [
+        "Yi Liu",
+        "Xiantao Fan",
+        "Mingqi Xu",
+        "Jian-Xun Wang"
+      ],
+      "abstract": "Turbulence modeling relies on human choices of closure form, physical inputs, and tunable parameters. Training closures a posteriori is efficient only with gradients through long chaotic rollouts, which few solvers provide. Most a posteriori approaches therefore resort to gradient-free optimization, and nearly all fix the closure form in advance, learning only its parameters. In this work, we introduce a gradient-aware agentic framework that poses closure discovery as a bilevel problem: a multi-agent large language model (LLM) system searches over closure forms, while a GPU-native differentiable computational fluid dynamics (CFD) solver supplies gradients, making differentiable a posteriori learning an action of the autonomous AI agent. For each proposal, the agents construct a differentiable training program by embedding the analytical, neural, or hybrid closure in the solver, implementing a differentiable objective, and validating the gradient path. They then decide whether to evaluate the closure, compute its parameter sensitivities, or train it a posteriori, select the optimization settings, and revise subsequent proposals using the simulation outcomes and returned gradients. Truncated-horizon gradients make this training usable under chaotic dynamics for closures with tens of thousands of parameters. Demonstrations include dissipation-law and subgrid-scale closure discovery in two-dimensional turbulence and wall-model discovery for large-eddy simulation of three-dimensional channel flow. With gradient-based training, the agent recovers reference coefficients that forward evaluation alone does not reach within the same budget, and autonomously discovers and trains analytical and neural closures that improve agreement with the targeted reference statistics. These results demonstrate the feasibility of end-to-end autonomous turbulence model development in time-resolved flows.",
+      "theme": "AI for science & deeptech",
+      "emoji": "🔬",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 4
+      },
+      "overall": 4.1,
+      "card": {
+        "in_short": "A multi-agent LLM system uses differentiable fluid simulations to automatically discover and optimize complex physics models for turbulence.",
+        "picture_it": "Like a team of fluid-dynamics physicists collaborating with a supercomputer that instantly calculates the exact mathematical consequences of every idea.",
+        "key_term": "Differentiable CFD: A computer simulation of fluid flow that can calculate exact gradients, showing how tiny changes to an equation affect the entire chaotic outcome.",
+        "why_it_matters": "Aerospace, automotive, and climate-modeling industries can drastically cut down the time needed to design aerodynamics and fluid systems.",
+        "future_signal": "Scientific discovery is becoming an automated loop where AI agents write mathematical models and use gradient-based solvers to perfect them.",
+        "ask": "How do you prevent the LLM agents from discovering mathematical closures that fit the training data through overfitting rather than true physics?"
+      },
+      "date": "2026-11-13"
+    },
+    {
+      "arxiv_id": "2611.14808v1",
+      "title": "OverServe: Resource Amplification Attacks on SaaS Agents via Tool--Prompt Co-Design",
+      "url": "https://arxiv.org/abs/2611.14808v1",
+      "authors": [
+        "Ruiheng Yu",
+        "Oteo Mamo",
+        "Siyu Gan",
+        "Weikuan Yu",
+        "Mulong Luo"
+      ],
+      "abstract": "Advances in large language models (LLMs) are enabling software-as-a-service (SaaS) providers to automate longer business workflows with agents. In subscription-based SaaS deployments, model and tool calls consume provider resources without additional customer payments. Because the agent autonomously decides when to stop, a malicious tenant can send a prompt to the agent, exploiting its completion decisions to extend execution and waste provider resources. In this paper, we present OverServe, a multi-agent framework for constructing such attacks against SaaS agents. OverServe co-designs Model Context Protocol (MCP) status tools and completion-confirmation prompts for the attacker. Each tool call returns accurate status and terminates normally, yet the agent may repeatedly check an unfinished condition to satisfy the prompt. This consumes the SaaS provider's resources even after the original business task is completed. OverServe constructs service-specific tool--prompt pairs and uses separate tool and prompt reviews to guide candidate pair selection. Tested tool specifications trigger no alerts in the evaluated MCP scanners. We evaluate Qwen, Nemotron, DeepSeek, and Sonnet on selected tasks from nine benchmarks. All OverServe runs pass the original task checks. OverServe can reach a maximal amplification of API requests by $93.88\\times$ while preserving the original task goal and collateral checks.",
+      "theme": "Safety & interpretability",
+      "emoji": "🛡️",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 4
+      },
+      "overall": 4.0,
+      "card": {
+        "in_short": "Researchers demonstrate a multi-agent attack where malicious users trick SaaS AI agents into wasting provider resources by exploiting their tool-use loops.",
+        "picture_it": "Like a demanding customer who keeps asking a customer service agent endless trivial clarifying questions long after the main task is finished.",
+        "key_term": "Model Context Protocol (MCP): An open standard that lets AI models securely connect to external tools, data sources, and software services.",
+        "why_it_matters": "SaaS companies offering subscription-based AI agents face severe financial risks from resource-drain attacks that bypass per-request billing limits.",
+        "future_signal": "As agents gain autonomous control over completion loops, security must evolve to protect against economic denial-of-service vulnerabilities.",
+        "ask": "What structural changes to tool-use protocols are needed to prevent agents from being trapped in infinite, resource-wasting verification loops?"
+      },
+      "date": "2026-11-13"
+    }
+  ]
+}
