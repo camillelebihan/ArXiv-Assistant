@@ -1,0 +1,200 @@
+{
+  "week": "2026-W46",
+  "label": "9–15 Nov 2026",
+  "synthesis": {
+    "big_picture": [
+      "Foundation models are rapidly migrating from text and pixels into complex physical and biological domains, transforming AI from a digital assistant into a material scientist.",
+      "The fusion of AI agents with formal verification and mathematical proof is shifting automated discovery from trial-and-error to provably correct engineering.",
+      "Generalist control policies are eliminating the need for task-specific robotic training, paving the way for truly adaptable, embodied physical intelligence."
+    ],
+    "watch_next": "Keep an eye on whether multimodal foundation models can successfully bridge the gap between simulated 3D world physics and real-time robotic execution in unstructured environments."
+  },
+  "picks": [
+    {
+      "arxiv_id": "2611.14504v1",
+      "title": "Emergent Biological Capabilities in a Foundation Model for Molecular Interactions",
+      "url": "https://arxiv.org/abs/2611.14504v1",
+      "authors": [
+        "Adi Mashiach"
+      ],
+      "abstract": "Foundation models trained on large unlabeled corpora develop emergent capabilities, tasks that go beyond the training objective. We extend this paradigm to multimodal biology with Bonbon, a foundation model for molecular interactions trained on approximately 3.2 trillion tokens of paired protein-ligand sequences. From a single representation space, Bonbon exhibits three zero-shot emergent capabilities at hierarchical levels of resolution: functional (mechanism of action), residue (binding site localization, including orthosteric/allosteric discrimination), and bond (covalent versus non-covalent engagement). All three capabilities generalize to out-of-distribution complexes. Bonbon was trained on protein-ligand sequences alone, without any task-specific supervision and without structural coordinates. We conducted controlled scaling experiments across six model scales from 42M to 1.6B parameters; every capability evaluated shows a sharp jump at the largest scale on continuous metrics, even as pretraining loss decreases smoothly. This demonstrates that loss-based scaling laws alone are insufficient to predict when zero-shot emergent capabilities become available. The capabilities reported here emerge after training at a 1:2,000 parameter-to-token ratio to accommodate the sparsity of paired biological interaction data. The same frozen representations achieve state-of-the-art binding and affinity prediction at five orders of magnitude greater speed than co-folding methods. In prospective wet-lab validation across nine disease targets spanning seven protein families, Bonbon achieves a 61.5% dose-response hit rate on de novo compounds, yielding structurally novel molecules not previously reported to inhibit these proteins, including for out-of-distribution targets.",
+      "theme": "AI for science & deeptech",
+      "emoji": "🔬",
+      "scores": {
+        "novelty": 5,
+        "rigor": 5,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 5.0,
+      "card": {
+        "in_short": "Bonbon is a molecular foundation model trained on protein-ligand sequences that predicts interactions, identifies binding sites, and discovers active de novo compounds.",
+        "picture_it": "Like a master locksmith who can look at a key blank and instantly guess the shape of locks it will open without ever seeing them.",
+        "key_term": "Zero-shot emergent capabilities: Skills that appear in a model at scale without having been explicitly trained or supervised for those specific tasks.",
+        "why_it_matters": "Drug discovery companies can bypass slow structural co-folding methods, drastically speeding up candidate molecule generation and wet-lab validation.",
+        "future_signal": "Foundation models trained purely on sequence data will increasingly bypass traditional physics-based simulations in early-stage biological R&D.",
+        "ask": "How do you ensure that scaling sequence-only models won't hit a hard ceiling where physical 3D structural data becomes strictly necessary?"
+      },
+      "date": "2026-11-12"
+    },
+    {
+      "arxiv_id": "2611.09822v1",
+      "title": "Discovering formally verified quantum programs with AI",
+      "url": "https://arxiv.org/abs/2611.09822v1",
+      "authors": [
+        "Sergey Shirobokov",
+        "Ben Jaderberg",
+        "Katerina Hristova",
+        "George Tsoukalas",
+        "Johannes Bausch",
+        "Eric Wieser",
+        "Francisco J. H. Heras",
+        "Nicholas C. Rubin",
+        "Guang Hao Low",
+        "Sébastien Racanière",
+        "Nenad Tomašev",
+        "Lei M. Zhang",
+        "James Watson",
+        "Tanuj Khattar",
+        "Aws Albarghouthi",
+        "Stavan Jain",
+        "Harun Khan",
+        "Leopoldo Sarra",
+        "Andrew W. Senior",
+        "Michael Broughton",
+        "Hussain Masoom",
+        "Sergio Boixo",
+        "Ryan Babbush",
+        "Swarat Chaudhuri",
+        "Pushmeet Kohli"
+      ],
+      "abstract": "The timeline by which quantum computers can solve breakthrough problems in science depends on improved quantum algorithms as much as on better hardware. Such algorithmic advances are typically achieved through many years of expert human collaboration. In mathematics and computer science, large language models have accelerated progress through automated discovery loops. However, quantum algorithms can only be evaluated by classical computers on restricted or small instances. Here we demonstrate automated discovery of quantum programs beyond these regimes including order-of-magnitude improvements on scientific applications. To achieve this, we build a quantum program library in the Lean theorem prover in which large language model agents synthesize novel programs against formal problem specifications and verify their correctness and cost. Agent teams collaborate, sharing results and knowledge through wikis and discussing ideas at organized conferences. Our results improve on prior baselines for parallel search (up to 1.4x), quantum arithmetic (290x), and simulations relevant to fusion, photochemistry and drug-metabolism by 11x, 8x and 2.5x respectively. Combining human and artificial intelligence at scale, under the rigor of mathematical proof, lets researchers design algorithms that today's classical and quantum computers cannot test, shortening the path to practical quantum computation.",
+      "theme": "AI for science & deeptech",
+      "emoji": "🔬",
+      "scores": {
+        "novelty": 5,
+        "rigor": 5,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 5.0,
+      "card": {
+        "in_short": "Researchers used AI agents and mathematical proof verification to automatically discover and verify advanced quantum programs, achieving massive performance gains.",
+        "picture_it": "Like an automated factory where robots build and test complex engine parts inside a chamber of unbreakable mathematical laws.",
+        "key_term": "Lean theorem prover: A software tool that checks whether computer code strictly satisfies rigorous mathematical rules and specifications.",
+        "why_it_matters": "It could drastically shorten the time required to design quantum algorithms for drug discovery, material science, and clean energy.",
+        "future_signal": "AI-driven discovery paired with formal verification will likely become the standard way to program complex, high-stakes scientific infrastructure.",
+        "ask": "How do you ensure that these AI-discovered quantum algorithms actually work on near-term, noisy quantum hardware rather than just in simulation?"
+      },
+      "date": "2026-11-09"
+    },
+    {
+      "arxiv_id": "2611.12791v1",
+      "title": "Large Language Models as a Universal Searcher for Open-World Automated Machine Learning",
+      "url": "https://arxiv.org/abs/2611.12791v1",
+      "authors": [
+        "Yuxuan Hu",
+        "Jihao Liu",
+        "Weikang Shi",
+        "Xijie Huang",
+        "Linda Wei",
+        "Mingjie Zhan",
+        "Aojun Zhou",
+        "Rui Liu",
+        "Hongsheng Li"
+      ],
+      "abstract": "Developing effective machine learning models requires complex manual tuning, while current Automated Machine Learning (AutoML) frameworks remain domain-specific and isolate model architecture, training hyperparameter, and data ratio optimization. Here, we bridge this gap by proposing a universal, large language model (LLM)-based AutoML framework that jointly optimizes these configurations for the first time without the need for task-specific fine-tuning. We propose NCode, a unified numerical encoding scheme that translates diverse AutoML design choices into universal discrete sequences and effectively reframes the optimization process as a unified ranking task. Trained solely on optimization trajectories derived from a limited, single-domain vision task, the proposed LLM-based searcher demonstrates impressive cross-task, cross-modality and joint search-space optimization generalizability, achieving state-of-the-art performance across image classification, image segmentation, speaker verification and text-to-image benchmarks. Crucially, it exhibits superior scalability in the large-scale training and joint optimization of a billion-parameter Diffusion Transformer, requiring 896 GPU-days and attaining a state-of-the-art GenEval score of 0.91. By leveraging reinforcement learning to instill Chain-of-Thought reasoning, we provide a systematic way to interpret the LLM-based searcher's internal decision-making mechanisms, revealing its optimization strategy shifted from the early-stage diversity-driven exploration to the late-stage anchor exploitation. Our proposed framework provides a scalable, generalizable, and interpretable pathway toward general-purpose open-world machine learning optimization.",
+      "theme": "Frontier LLMs & reasoning",
+      "emoji": "🧠",
+      "scores": {
+        "novelty": 5,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.8,
+      "card": {
+        "in_short": "NCode uses a large language model and numerical encoding to universally optimize machine learning architectures, hyperparameters, and data ratios across multiple modalities.",
+        "picture_it": "Like a universal mechanic who can tune a spaceship engine, a lawnmower, and a bicycle using the exact same set of diagnostic rules.",
+        "key_term": "AutoML (Automated Machine Learning): The process of automating the tasks of applying machine learning to real-world problems.",
+        "why_it_matters": "AI engineering teams can automate the grueling trial-and-error process of model tuning, saving thousands of GPU-days and engineering hours.",
+        "future_signal": "LLMs are shifting from passive code assistants to active, self-correcting optimization agents capable of managing large-scale infrastructure training end-to-end.",
+        "ask": "What prevents the LLM searcher from hallucinating non-viable hyperparameter configurations during long-horizon search trajectories?"
+      },
+      "date": "2026-11-12"
+    },
+    {
+      "arxiv_id": "2611.08338v1",
+      "title": "GPWM: Modeling the World as 3D Particle Motion",
+      "url": "https://arxiv.org/abs/2611.08338v1",
+      "authors": [
+        "Robert Ren",
+        "Matthew Bronars",
+        "He Zhu",
+        "Yikai Tang",
+        "Jianing Zhang",
+        "Sergey Zakharov",
+        "Pavel Tokmakov",
+        "Katerina Fragkiadaki"
+      ],
+      "abstract": "We introduce GPWM, a Generative Particle World Model that predicts how 3D scenes evolve by generating the motion of particles and rigid bodies over time. Unlike video world models that generate scene appearance, GPWM operates directly in 3D physical space. A single representation and architecture cover rigid, deformable, cloth, and granular materials, in both passive physics and robotic interaction. GPWM is an object-aware multi-resolution transformer that combines flow matching with diffusion forcing to generate coherent physical trajectories far beyond its training horizon. We train and evaluate GPWM on ParticleWorlds, a 25.5-million-frame corpus spanning diverse geometries, materials, interactions, and robot embodiments. GPWM outperforms the best prior learned-dynamics baseline in each of six physical domains, reducing prediction error by 31% on average. Breaking from the domain-specific setting of prior methods, a single Unified GPWM models these heterogeneous regimes with one set of weights, largely outperforming per-domain baselines and even surpassing our own specialist models in two domains. GPWM further generalizes to unseen geometries, physical properties, object counts, and rollout horizons. Beyond prediction, GPWM enables contact-rich planning by learning a generative prior over joint actuator-object motion. Instead of searching over unconstrained actions, planning searches the model's latent noise for interactions that achieve a desired object-space goal. With the same world model, noise-space planning substantially outperforms action-space search on pushing and picking, where complex contact sequences are hard to discover. Executed open-loop in simulation, the resulting plans achieve goal-directed manipulation without reference action trajectories or goal-specific policies.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 5,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.8,
+      "card": {
+        "in_short": "The authors introduce a 3D particle-based world model that predicts how rigid, soft, and fluid materials move and interact over time.",
+        "picture_it": "Like a digital sandbox where tiny bouncing balls instantly simulate how a cloth drapes, water splashes, or a robot pushes a box.",
+        "key_term": "Flow matching: A machine learning technique used to generate complex trajectories by learning the velocity vector field that moves data points from noise to reality.",
+        "why_it_matters": "Robots can plan physical interactions much faster and more reliably by searching through a physical world model instead of trial and error.",
+        "future_signal": "World models are expanding beyond 2D video generation into true 3D physics engines that enable zero-shot robotic manipulation.",
+        "ask": "How does this particle-based model scale to handle millions of interacting objects without exploding in computational cost?"
+      },
+      "date": "2026-11-09"
+    },
+    {
+      "arxiv_id": "2611.09892v1",
+      "title": "On Agentic Manipulation Policies",
+      "url": "https://arxiv.org/abs/2611.09892v1",
+      "authors": [
+        "Chen Chen",
+        "Omid Bagherieh",
+        "Naveen Nikamanth Appiah Balaji",
+        "Jesse T. Gonzalez",
+        "Negin Heravi",
+        "Fahad Islam",
+        "Xueting Li",
+        "Jean-Baptiste Regli",
+        "Kejia Ren",
+        "Petr Švec",
+        "David J. Yoon",
+        "Matthias Müller",
+        "Vladlen Koltun"
+      ],
+      "abstract": "Recent work on robot manipulation has focused on specialist policies trained on demonstrations. We show that generalist AI models can control manipulators more reliably than specialist policies such as vision-language-action models (VLAs) and world-action models (WAMs). We systematically analyze agentic manipulation policies (AMPs), in which a generalist AI model commands the manipulator directly, adapting its actions as the task unfolds. We present AMP1, a reference harness that runs unchanged across single-arm, bimanual, and mobile manipulation. AMP1 achieves state-of-the-art results on the RoboLab-120 and CaP-Gym benchmarks, with no demonstrations or task-specific training. On RoboLab-120, AMP1 reaches an 85.6\\% success rate zero-shot, compared to 49.2\\% and 42.9\\% for leading VLA and WAM policies. The agent succeeds zero-shot in 104 of 108 real-world trials spanning twelve tasks and three robot instances, reducing failure rates by 20x and 15x relative to strong VLA and WAM baselines. The basic harness supplies no grasping, pushing, or placing skills; the agent develops its own strategies, such as searching for hidden objects, using objects as tools, and calibrating its cameras. With the addition of a persistent memory store, the agent can also learn from experience: an augmented harness with a memory representation that is carried across episodes lowers the failure rate on RoboDojo bimanual manipulation tasks by 4.6x relative to zero-shot deployment. Our analysis suggests that AMPs are substantially more general and robust than specialist manipulation policies, providing a promising foundation for robot manipulation.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 5,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.8,
+      "card": {
+        "in_short": "The paper demonstrates that generalist AI models can control robot arms directly and reliably without needing task-specific training or demonstrations.",
+        "picture_it": "Like a skilled human worker who walks into a completely unfamiliar room and figures out how to use the tools inside on the first try.",
+        "key_term": "Vision-language-action model (VLA): An AI model that takes camera images and text commands as input and directly outputs robot movement instructions.",
+        "why_it_matters": "It removes the massive bottleneck of collecting expensive human demonstration videos to train every single new robot capability.",
+        "future_signal": "Generalist AI agents will likely replace brittle, task-specific software pipelines in warehouse automation and home robotics.",
+        "ask": "Without task-specific demonstrations, how do you guarantee the robot won't execute unsafe or destructive movements in complex environments?"
+      },
+      "date": "2026-11-09"
+    }
+  ]
+}
