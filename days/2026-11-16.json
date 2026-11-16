@@ -1,0 +1,228 @@
+{
+  "date": "2026-11-16",
+  "picks": [
+    {
+      "arxiv_id": "2611.18372v1",
+      "title": "Vision-Language-Action Models: A Life-Cycle Survey of Design, Training and Deployment",
+      "url": "https://arxiv.org/abs/2611.18372v1",
+      "authors": [
+        "Suvarna Kadam",
+        "Soran Parsa"
+      ],
+      "abstract": "Vision-language-action (VLA) models adapt web-pretrained vision-language models to output robot actions, so that web knowledge carries over to physical control. In under 4 years the field has moved from RT-2, the first VLA, to open models that fine-tune on a single consumer GPU and to proprietary generalists that clean unseen homes. This survey reviews 88 works from December 2022 to October 2026, mainly on manipulation and navigation, plus humanoid control, world-action models and evaluation. We follow a VLA through its life cycle, from model design to training and deployment, along seven axes. Model design covers (a) inputs and memory, what the model observes; (b) architecture, how its pipeline is built; (c) action output, how it produces motor commands; and (d) intermediate predictions, what else it predicts, from reasoning steps to future observations. Training covers (e) pretraining data, the mix of robot, web, human and simulated data, and (f) post-training, adaptation to the target robot. Deployment covers (g) real-time execution, keeping pace with the robot. We analyse 22 models on these axes and report their training data, model size, inference speed and hardware. Three trends emerge: (i) training data has broadened, from about 10,000 hours of teleoperated robot data ($π_0$) to 23,000 community-collected episodes (SmolVLA) and 20,000 hours of egocentric human video (GR00T N1.7); (ii) model sizes have split: most recent models have 3-7 billion parameters, while a new group under one billion runs on consumer GPUs; and (iii) generalist VLAs are emerging that handle both manipulation and navigation, such as UniVLA and Qwen-VLA. We also compare VLAs with world-action models, which predict future observations as well as actions. We review evidence that some VLAs with near-perfect benchmark scores fail when objects or the camera move slightly, and open up further research questions.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 4,
+        "rigor": 5,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.75,
+      "card": {
+        "in_short": "This paper surveys 88 recent vision-language-action models, analyzing how web-trained AI is being adapted to control physical robots across different designs and training regimes.",
+        "picture_it": "Like taking a brilliant internet-addicted student and giving them a rigorous crash course in operating a forklift.",
+        "key_term": "Vision-Language-Action (VLA) Model: An AI architecture that bridges web-scale perception models with physical motor control commands for robots.",
+        "why_it_matters": "It maps out the architectural blueprint for building general-purpose physical robots that can understand human instructions and manipulate the real world.",
+        "future_signal": "Robotics is splitting into lightweight sub-billion parameter models running on local chips and massive generalists handling complex navigation and manipulation.",
+        "ask": "How are you handling the latency gap between heavy vision-language reasoning and real-time physical robot actuation?"
+      },
+      "date": "2026-11-16"
+    },
+    {
+      "arxiv_id": "2611.17598v1",
+      "title": "X-Nav Technical Report: Real-World Long-Horizon Indoor-to-Outdoor Navigation on a Humanoid Robot",
+      "url": "https://arxiv.org/abs/2611.17598v1",
+      "authors": [
+        "Jiaxin Huang",
+        "Chengxing Lin",
+        "Xiaoyu Luo",
+        "Sirui Chen",
+        "Jingyu Guo",
+        "Aolin Li",
+        "Kairui Chen",
+        "Rui Zhen",
+        "Cheng Wen",
+        "Kerui Gu",
+        "Shunyao Wang",
+        "Zhihui Peng",
+        "Shaoli Huang"
+      ],
+      "abstract": "Long-horizon navigation from indoors to outdoors remains an open problem for humanoid robots: one instruction covers rooms, doors and roads, and the camera moves with the gait. Worken, AGIBOT's measure of productive robot work, depends on robots that reach their workplaces autonomously. We present X-Nav, to our knowledge the first system to take a bipedal humanoid through a language-instructed long-horizon mission from indoors to outdoors. X-Nav covers a pipeline from data to deployment. Its data engine collects navigation data in open-source scenes, in digital twins of deployment sites and on real robots. Its navigation model, MELIOR, takes only RGB images from the robot's built-in camera and comes in two versions: MELIOR-A predicts actions, and MELIOR-N predicts a navigation goal. Its agentic workflow, X-Navarch, turns a brief human instruction into sub-tasks and deploys MELIOR on the robot with explicit target navigation and obstacle avoidance. On the Lingxi X2, X-Nav completes a mission of about a hundred metres from an office lobby to a store in a neighbouring building; LiDAR and odometry are used for target approach and low-level control. The mission is completed with both versions of MELIOR: the robot follows a change of destination and walks through a door from the lobby to the road, and with X-Navarch it also passes static and dynamic obstacles on the route. During deployment, MELIOR is adapted with data collected in a digital twin of the site; the adaptation raises its closed-loop success rate in the twin, and the adapted model is then deployed on the robot at the real site. In addition, MELIOR achieves competitive results on the R2R-CE and RxR-CE benchmarks.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.55,
+      "card": {
+        "in_short": "The authors introduce X-Nav, a system enabling a bipedal humanoid robot to autonomously navigate complex, long-horizon routes from indoor offices to outdoor streets using only RGB cameras.",
+        "picture_it": "Like watching a tourist successfully navigate a labyrinthine hotel lobby out onto a chaotic city street using only a smartphone camera and verbal directions.",
+        "key_term": "Digital Twin: A high-fidelity virtual simulation of a physical environment used to train and test robotic navigation policies safely before real-world deployment.",
+        "why_it_matters": "It demonstrates a practical pipeline for moving humanoid robots out of controlled labs and into unstructured, real-world commercial environments.",
+        "future_signal": "Bipedal humanoids are moving closer to performing commercially viable, multi-step physical labor across mixed indoor and outdoor settings.",
+        "ask": "How much digital twin training data do you need before your navigation models can safely transfer to a novel physical building?"
+      },
+      "date": "2026-11-16"
+    },
+    {
+      "arxiv_id": "2611.17520v1",
+      "title": "Only as Safe as the Weakest Agent: A Break That Appears Only When the System Is Multi-Agent",
+      "url": "https://arxiv.org/abs/2611.17520v1",
+      "authors": [
+        "Keegan Wang",
+        "Anantika Mannby"
+      ],
+      "abstract": "Major industry multi-agent systems like Codex and Claude Code can be broken by attacks that have long been unsuccessful against modern frontier models. AI Safety as a discipline has largely focused on finding the bounds and vulnerabilities of AI models used in isolation. Yet as humans increasingly deploy these models as agents and multi-agent systems, the same attacks that had been thought to be patched when using a model in isolation can break these same models under specific circumstances. We show that these system breaks are not purely theoretical, but can break Claude Code, Codex, and a reference harness, all unmodified and used with their own sub-agent mechanisms. We show the attack by asking agents to answer questions from a store of files on disk in which we have planted a forged record. Searching the store themselves, the strong model orchestrators commit almost zero harmful revisions in over 1,000 trials. However, if that same orchestrator model delegates to a cheaper sub-agent, which is what these harnesses are built to do, the same models on the same facts fail on 20/180, 44/180, 75/180 and 553/900. Thus, even when the system is driven by a strong model, the system's safety lands near the weak reader's, not the orchestrator's. Simulations over 18 models show the same effect in the delivery channel where five aggregators, who on their own were almost never unsafe, repeat a corrupted sub-agent's error in 751/757 trials. The safety of real-world agentic systems that use strong orchestrator agents and weaker sub-agents, and multi-agent systems in general, is defined not by the safety of the strong agent but by the safety of the weakest agent.",
+      "theme": "Safety & interpretability",
+      "emoji": "🛡️",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.55,
+      "card": {
+        "in_short": "The researchers show that multi-agent AI systems, even when managed by strong frontier models, inherit the vulnerabilities and safety failures of their weakest sub-agents.",
+        "picture_it": "Like an elite executive team that fails a major security audit because they blindly trusted an intern's forged expense report.",
+        "key_term": "Multi-Agent System: A network of multiple AI models or sub-agents that communicate and delegate sub-tasks to accomplish complex goals collaboratively.",
+        "why_it_matters": "Companies deploying multi-agent developer tools must realize that system security is bottlenecked by the least secure component in the agent chain.",
+        "future_signal": "Enterprise adoption of autonomous multi-agent workflows will face severe security hurdles until inter-agent trust and verification are solved.",
+        "ask": "How do you prevent a strong orchestrator model from blindly executing instructions or code injected by a cheaper, less secure sub-agent?"
+      },
+      "date": "2026-11-16"
+    },
+    {
+      "arxiv_id": "2611.17610v1",
+      "title": "More Agents, More Samples, or More Thinking? Untangling Coordination, Ensembling, and Test-Time Compute in Multi-Agent LLMs",
+      "url": "https://arxiv.org/abs/2611.17610v1",
+      "authors": [
+        "Seyed Mahmoud Sajjadi Mohammadabadi"
+      ],
+      "abstract": "Evaluations of multi-agent language models often compare communicating architectures against a single greedy pass. This practice confounds coordination with sample multiplicity and inference compute. We synthesize nine primary empirical evaluations comprising 516 unique multi-agent configurations organized along a resource vector R with six dimensions and a baseline ladder with four categories. Against baselines with a single pass (Category A), multi-agent accuracy differences are negative overall and near zero when omitting the largest contributing study. When evaluated against baselines matched on sample count (Category B) or resource budget (Category C), multi-agent systems average -0.042 in accuracy, and multilevel random effects modeling on the log odds scale remains negative across sensitivity checks. Multi-agent accuracy equals or falls below the baseline in 74% of these comparable contrasts, and study means are nonpositive in almost all evaluated studies. Across studies reporting both baselines, moving from a greedy pass to a sampled baseline shifts accuracy differences by -0.038 on average. Because communication adds no information when agents share identical evidence, positive returns require partitioned evidence, external verification, or error diversity across models. We provide a reviewer checklist and accounting utilities.",
+      "theme": "AI agents",
+      "emoji": "🤖",
+      "scores": {
+        "novelty": 4,
+        "rigor": 5,
+        "impact": 4,
+        "relevance": 4
+      },
+      "overall": 4.4,
+      "card": {
+        "in_short": "This paper evaluates 516 multi-agent configurations and finds that multi-agent systems often perform no better than single models when accounting for total compute and sample count.",
+        "picture_it": "Like a large corporate committee that spends hours debating a problem but ultimately produces the exact same answer as a smart solo employee.",
+        "key_term": "Test-Time Compute: The extra processing power and inference steps an AI model uses to think or search before generating a final output.",
+        "why_it_matters": "It challenges the hype around multi-agent architectures, proving that simply adding more communicating agents does not automatically yield smarter results.",
+        "future_signal": "AI engineering will shift focus away from noisy multi-agent chatter toward rigorous evidence-partitioning and structured verification methods.",
+        "ask": "When does multi-agent communication actually add value over just spending that same compute budget on a single model's deep reasoning?"
+      },
+      "date": "2026-11-16"
+    },
+    {
+      "arxiv_id": "2611.17790v1",
+      "title": "AutoRL: A Multi-Agent System towards Autonomous Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2611.17790v1",
+      "authors": [
+        "Simon Tang",
+        "Wenjie Shi",
+        "Yongjing Yin",
+        "Keheng Wang",
+        "Jialin Liu",
+        "Zheng Zhang",
+        "Linvo Lin",
+        "Xiangyuan Xue",
+        "Kan Ren",
+        "Jingang Wang",
+        "Xunliang Cai"
+      ],
+      "abstract": "Recursive self-improvement (RSI) is one of the most promising paths toward an AI singularity for superintelligence. Achieving this vision requires AI systems to undertake the full training pipeline for iterative improvement. Reinforcement learning (RL) plays an essential role in this cycle to improve model capabilities and generalization, yet automating RL remains difficult due to unstable training dynamics and the need for sustained supervision. We introduce AutoRL, a multi-agent system for automating RL training, as a cornerstone for future RSI. Different from conducting research by end-to-end complete experiments, AutoRL monitors the evolving training state and integrates process-level supervision and research into an ongoing RL training, following the practical workflow of an RL researcher. Specifically, AutoRL consists of three RL-specific agentic roles. Perceptors track training dynamics, rollouts, evaluation, and efficiency, triggering deliberation when they detect anomalies, degradation, or stagnation. Three complementary Proposers diagnose problems and refine candidate interventions through shared evidence and checks. The Orchestrator reviews their recommendation and applies approved changes through online hot updates or checkpoint-based resumption. Experiments on Qwen3 and LongCat-Flash-Lite demonstrate the superiority of AutoRL over static RL recipes and a general agent. The research records show that existing agents can handle unattended RL supervision and dynamic adjustment. The difficulty for future RSI lies in developing fundamental methods that are valuable for resource-consuming validation.",
+      "theme": "AI agents",
+      "emoji": "🤖",
+      "scores": {
+        "novelty": 4,
+        "rigor": 3,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.35,
+      "card": {
+        "in_short": "The authors introduce AutoRL, a multi-agent system that automates the complex, unstable process of reinforcement learning training to pave the way for recursive self-improvement.",
+        "picture_it": "Like an automated pit crew that continuously monitors a race car's telemetry, diagnoses engine trouble, and swaps out parts while the car is still moving.",
+        "key_term": "Recursive Self-Improvement (RSI): A theoretical loop where an AI system iteratively enhances its own architecture and capabilities without human intervention.",
+        "why_it_matters": "Automating reinforcement learning reduces the human bottleneck in training next-generation foundational models and specialized agents.",
+        "future_signal": "AI development is moving from manual hyperparameter tuning toward fully autonomous research and training loops.",
+        "ask": "How does AutoRL safely validate training adjustments without human oversight when reinforcement learning dynamics turn unstable?"
+      },
+      "date": "2026-11-16"
+    },
+    {
+      "arxiv_id": "2611.17098v1",
+      "title": "Speed-to-Power Dominates Energy Costs for AI Data Centers: Technoeconomic Analysis of Powering AI in the Continental United States",
+      "url": "https://arxiv.org/abs/2611.17098v1",
+      "authors": [
+        "Alex C. Newkirk",
+        "Daniel L. Gerber",
+        "Erica R. H. Fuchs",
+        "Alex Hubbard",
+        "M. Granger Morgan",
+        "Arman Shehabi",
+        "Sarah J. Smith",
+        "Constantine Samaras"
+      ],
+      "abstract": "The rapid growth of artificial intelligence is driving demand for new data centers at large scale and on short deployment timelines. To power them, firms connect to the commercial grid or contract generation directly, but interconnection and gas-turbine delays now incentivize on-site generation. We compare grid-connected and off-grid data center energy infrastructure (AC- and DC-coupled solar-plus-storage, islanded natural gas, and grid interconnection) across the continental U.S. Using an open-source technoeconomic framework built on empirically calibrated AI training loads, climate-driven cooling, stage-by-stage power conversion, and physics-based battery degradation, we model designs providing equivalent energy services. Our central contribution is a speed-adjusted cost of energy that values the compute unlocked by faster construction, making options with different deployment timelines directly comparable on one physically consistent basis. We find DC coupling reduces lifetime energy costs by 18% ($0.09/ kWh) on average versus AC counterparts by eliminating inverters and improving efficiency. Though rarely cheapest on unadjusted energy cost, DC-coupled microgrids' faster deployment makes them the lowest-cost modeled option in 85% of U.S. locations once foregone compute is valued, or 55% under accelerated natural gas timelines. For AI infrastructure, deployment speed rather than unit energy cost determines the economically preferred path to power.",
+      "theme": "Business & startups",
+      "emoji": "🚀",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 4
+      },
+      "overall": 4.3,
+      "card": {
+        "in_short": "A technoeconomic analysis shows that for AI data centers, the speed of deploying power infrastructure matters more than raw energy costs because faster uptime unlocks more compute value.",
+        "picture_it": "Like a gold miner who gladly pays extra for a fast helicopter delivery of mining equipment because unmined gold loses value every day it sits in the ground.",
+        "key_term": "Speed-Adjusted Cost of Energy: An economic metric that values the revenue generated by faster compute deployment alongside raw energy generation costs.",
+        "why_it_matters": "It alters how energy infrastructure is financed, proving that DC-coupled microgrids and rapid off-grid power outcompete slower grid connections.",
+        "future_signal": "AI infrastructure developers will increasingly bypass traditional grid connection delays by building dedicated, fast-to-deploy on-site microgrids.",
+        "ask": "How do you factor regulatory and permitting delays into your timeline when calculating the speed-adjusted cost of powering a new data center?"
+      },
+      "date": "2026-11-16"
+    },
+    {
+      "arxiv_id": "2611.17880v1",
+      "title": "Soteria: Formally Verified Planning with Runtime Enforcement for Safe LLM Agents",
+      "url": "https://arxiv.org/abs/2611.17880v1",
+      "authors": [
+        "Mike He",
+        "Ankush Desai",
+        "Sharad Malik",
+        "Aarti Gupta"
+      ],
+      "abstract": "LLM agents that execute multi-step tool calls must satisfy two objectives simultaneously: completing the user's task (utility) and conforming to domain policies and correctness constraints (safety). These objectives are in tension -- blocking an unsafe action prevents a violation but can leave the agent stranded with no principled way to recover. Existing approaches sacrifice one objective for the other. We introduce Soteria, a framework that reconciles safety and utility through verified hierarchical planning and runtime enforcement of specifications. Before execution, the agent generates a structured plan that is formally verified against the specifications prior to any tool invocation. During execution, the verified plan serves dual roles: it ensures that the agent takes specification-conformant trajectories and provides guidance when unsafe actions are blocked. Across multiple benchmarks covering a diverse range of tool-use tasks, Soteria achieves 1.7 times the average task success rate of the best baselines, with no violations of policy specifications, demonstrating that safety and utility need not be traded off.",
+      "theme": "Safety & interpretability",
+      "emoji": "🛡️",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 4
+      },
+      "overall": 4.3,
+      "card": {
+        "in_short": "The authors present Soteria, a framework that uses formal verification and structured planning to keep LLM agents safe without sacrificing task success or getting stuck.",
+        "picture_it": "Like an autonomous car with a built-in mathematical guardian angel that instantly steers around obstacles without violating traffic laws or stalling out.",
+        "key_term": "Formal Verification: The use of mathematical logic to prove that a system's behavior strictly satisfies certain safety and correctness specifications.",
+        "why_it_matters": "It solves the frustrating trade-off in AI agents where safety filters either block legitimate tasks or leave the agent stranded with no recovery path.",
+        "future_signal": "Enterprise deployment of autonomous agents will increasingly rely on mathematically verified planning layers rather than brittle prompt-based guardrails.",
+        "ask": "How does Soteria guide the agent out of a deadlock when its primary path is blocked by a formal safety constraint?"
+      },
+      "date": "2026-11-16"
+    }
+  ]
+}
