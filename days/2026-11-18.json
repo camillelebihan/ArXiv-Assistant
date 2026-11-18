@@ -1,0 +1,227 @@
+{
+  "date": "2026-11-18",
+  "picks": [
+    {
+      "arxiv_id": "2611.22897v1",
+      "title": "Born for the Task: Rethinking Quantum Chemistry with Foresighted Agentic Computing",
+      "url": "https://arxiv.org/abs/2611.22897v1",
+      "authors": [
+        "Haozhi Han",
+        "Junjie Yang",
+        "Ruge Zhang",
+        "Zihe Huang",
+        "Pengyi Xu",
+        "Bo Zhang",
+        "Yunquan Zhang",
+        "Ting Cao",
+        "Yunxin Liu",
+        "Yifeng Chen",
+        "Kun Li"
+      ],
+      "abstract": "Quantum chemistry relies on general-purpose software, whose generality leaves many large-scale calculations beyond practical resource budgets. Coding agents make task-specific programs cheap to write, but not efficient ones easy to find: whether a computational strategy is accurate and fast enough becomes clear only after it actually runs at the target scale. We introduce BORN, a foresighted agentic computing framework that synthesizes high performance quantum chemistry programs on demand. BORN anticipates the behavior of each strategy before execution, extrapolating its error from representative small systems and predicting its runtime from the target-scale workload and measured hardware throughputs. Building on these predictions, BORN unfolds the preset schemes of existing packages into independently configurable algorithmic components, selects the fastest strategy within the error tolerance from the predicted accuracy-runtime Pareto frontier, and guides coding agents to compile it with component-level performance predictions. For a Hartree-Fock calculation with 50,024 basis functions, BORN finishes in 1.41h on a single CPU node, 77$\\times$ faster than the estimated runtime of a general-purpose baseline and still 9.8$\\times$ faster with development time included. On a single GPU, BORN completes the ubiquitin calculation in 2.1,h, the same order of runtime as the GPU-accelerated package Mako on 64 GPUs, and shortens the B-DNA duplex calculation from an estimated two months to 8.1,h (173$\\times$).",
+      "theme": "AI for science & deeptech",
+      "emoji": "🔬",
+      "scores": {
+        "novelty": 5,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.8,
+      "card": {
+        "in_short": "BORN uses coding agents to synthesize custom quantum chemistry programs, predicting accuracy and runtime to drastically speed up large-scale molecular simulations.",
+        "picture_it": "Like a master tailor who instantly cuts a bespoke suit rather than forcing everyone to wear one-size-fits-all.",
+        "key_term": "Pareto frontier: the set of optimal trade-offs where you cannot improve one metric without worsening another.",
+        "why_it_matters": "Drug discovery and materials science firms can run massive quantum calculations in hours instead of months, slashing R&D costs.",
+        "future_signal": "Domain-specific software generation will replace rigid legacy toolkits across scientific computing.",
+        "ask": "How does BORN ensure that its predicted accuracy-runtime tradeoffs hold up when moving to completely uncharted molecular structures?"
+      },
+      "date": "2026-11-18"
+    },
+    {
+      "arxiv_id": "2611.21847v1",
+      "title": "Inventa: Decentralized Self-Improving Agents for Autonomous Scientific Discovery",
+      "url": "https://arxiv.org/abs/2611.21847v1",
+      "authors": [
+        "Prithwish Jana",
+        "Nikos Kanakaris",
+        "Purak Jain",
+        "Anoop Deoras",
+        "Sahika Genc"
+      ],
+      "abstract": "Large language model (LLM) agents can generate research ideas and improve scientific discovery through iterative experimentation. However, increasing the number of agents or iterations does not automatically translate to producing more diverse or feasible ideas. Agents may converge on similar candidates, propagate unsupported claims through shared memory components and repeatedly apply search strategies that no longer yield any improvements. We introduce Inventa, a framework for automated scientific discovery that employs autonomous research units and verified shared knowledge. Each unit creates a lineage of candidate ideas using a mutator agent. A local orchestrator agent periodically adapts the mutator's harness. When progress stalls, the orchestrator agent replaces its model or restarts the idea evolution process. Verifiers evaluate each candidate idea and record verified improvements, useful components and constraint violations in a shared knowledge, the only channel between units. We evaluate Inventa on five benchmarks spanning the research cycle, covering retrieval (ScholarCatalyst), ideation (IdeaBench), proposal writing (IdeaScientist), and scientific law discovery (EurekaBench, SciLaws-Bench). It leads all five, achieving 73.6% on EurekaBench versus 56.2% for CORAL. On IdeaBench, it discovers 26.0 novel ideas per paper, compared with 18.6 for ResearchAgent, with 82% fewer model calls.",
+      "theme": "AI for science & deeptech",
+      "emoji": "🔬",
+      "scores": {
+        "novelty": 5,
+        "rigor": 3,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.6,
+      "card": {
+        "in_short": "Inventa is a decentralized framework for autonomous scientific discovery that uses isolated research units, verifiers, and an orchestrator to prevent idea stagnation.",
+        "picture_it": "Like a network of competing R&D labs that share only their proven breakthroughs while a manager resets failing teams.",
+        "key_term": "Mutator agent: an AI component tasked with generating variations of candidate ideas or hypotheses.",
+        "why_it_matters": "Autonomous research systems can bypass human biases and echo chambers, accelerating breakthroughs in materials, physics, and medicine.",
+        "future_signal": "AI labs will increasingly rely on multi-agent architectures with strict verification filters rather than raw scale to drive discovery.",
+        "ask": "How do you prevent the shared knowledge base from gradually accumulating subtle errors or hallucinations over long discovery cycles?"
+      },
+      "date": "2026-11-18"
+    },
+    {
+      "arxiv_id": "2611.21974v1",
+      "title": "Beyond Bitwidth: Deployment-Constrained Mixed-Precision Quantization for Multilingual LLM Inference on NVIDIA Blackwell",
+      "url": "https://arxiv.org/abs/2611.21974v1",
+      "authors": [
+        "Hyojung Han"
+      ],
+      "abstract": "Low-bit LLM quantization is useful only if a model preserves service-relevant accuracy, executes through supported GPU kernels, and meets measured memory and latency limits. We study Qwen3-8B on NVIDIA B200 with vLLM, including INT2/INT3, GPTQ, NVFP4, and mixed-precision configurations. We verify native packed execution and precision on all 144 fused linear modules and evaluate Korean, English, numerical, and reasoning quality under preregistered gates. Packed INT2 and INT3 execute, but all seven tested INT2 grids degenerate on generation. Isolated module-restoration effects are strongly non-additive; Korean and reasoning sensitivity rankings disagree, and a promising INT4/INT8 development candidate fails independent final evaluation. A configuration with 16-bit activations, 98 NVFP4 weight-only modules, 46 INT8 modules, and an INT8 output head passes all gates on the untouched FINAL-81 set (5,168 items): 5.917 GiB of weight-loading memory (limit 5.98), Korean teacher-correct retention 0.904 (gate 0.90), and TPOT ratio 0.939 relative to BF16. It improves paired accuracy over NVFP4 W4A4 by +1.4 percentage points (Bonferroni-adjusted interval [+0.2, +2.6]), compared with +3.4 points on the selection set. This comparison changes both activation precision and INT8 protection; exploratory analyses suggest that the activation change contributes substantially, but the isolated allocation effect is not established. Final checkpoints were not retained, and bitwise rebuild reproducibility remains unverified.",
+      "theme": "Efficient AI & chips",
+      "emoji": "🔌",
+      "scores": {
+        "novelty": 4,
+        "rigor": 5,
+        "impact": 4,
+        "relevance": 5
+      },
+      "overall": 4.45,
+      "card": {
+        "in_short": "Researchers tested various mixed-precision quantization schemes on Qwen3-8B using NVIDIA Blackwell, finding a configuration that hits performance goals while preserving quality.",
+        "picture_it": "Like compressing a high-resolution movie by shrinking the background frames while keeping the actors in crystal-clear detail.",
+        "key_term": "Quantization: reducing the numerical precision of model weights to decrease memory usage and speed up inference.",
+        "why_it_matters": "Companies can deploy large multilingual models locally on cutting-edge hardware with drastically reduced memory footprints.",
+        "future_signal": "Hardware-software co-design will require exhaustive empirical validation because theoretical precision trade-offs often fail in practice.",
+        "ask": "Why do isolated module-restoration effects behave so non-additively when mixing different precision levels across layers?"
+      },
+      "date": "2026-11-18"
+    },
+    {
+      "arxiv_id": "2611.22584v1",
+      "title": "InteractVLA: Turning VLAs into Interactive Tools for Agentic Robotic Manipulation",
+      "url": "https://arxiv.org/abs/2611.22584v1",
+      "authors": [
+        "Chen Zhao",
+        "Zipeng Ye",
+        "Shifeng Bao",
+        "Yihan Lin",
+        "Haitao Shen",
+        "Yining Luo",
+        "Yuchen Xie",
+        "Jing Zhang"
+      ],
+      "abstract": "Existing agentic manipulation systems treat pretrained vision-language-action (VLA) policies as opaque, language-only primitives: when a policy call fails under unfamiliar instructions or scene perturbations, the agent cannot steer its behavior and is forced into futile retries or costly manual takeover. We present InteractVLA, a framework that turns pretrained flow-based VLAs into geometrically steerable and inspectable tools through a bidirectional geometric interface with vision-language agents. In the forward direction, test-time geometric guidance translates an agent-specified end-effector target into input gradients through the action expert via a differentiable command-to-pose mapping, while soft-time target alignment treats arrival time as a latent execution index to match the target pose without distorting the policy's approach motion. In the reverse direction, action-informed agentic refinement exposes generated action chunks and calibrated camera reprojections back to the agent, allowing it to diagnose spatial discrepancies, revise targets for subsequent VLA calls, or locally adjust motion segments on top of the guided trajectory. Making the VLA controllable not only boosts online agentic tool use, but also unlocks effective recursive self-improvement (RSI), achieving state-of-the-art performance of 99.4\\% on LIBERO-Plus, 48.62\\% on RoboDojo, and 89.4\\% on RoboCasa365. Project page: https://lingwupro.github.io/InteractVLA/.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 5
+      },
+      "overall": 4.25,
+      "card": {
+        "in_short": "InteractVLA transforms rigid vision-language-action robotic policies into interactive tools that can be geometrically guided and corrected by high-level agents.",
+        "picture_it": "Like putting steering controls on a self-driving train so an operator can nudge it around sudden obstacles.",
+        "key_term": "End-effector: the tool or gripper at the end of a robotic arm that interacts with the physical environment.",
+        "why_it_matters": "Warehouse and home robots can recover from unexpected failures instantly instead of getting stuck or requiring human rescue.",
+        "future_signal": "Black-box foundational action models are giving way to inspectable, bidirectionally controllable robotic architectures.",
+        "ask": "How does the bidirectional interface handle sudden latency spikes when passing action chunks back and forth with the vision-language agent?"
+      },
+      "date": "2026-11-18"
+    },
+    {
+      "arxiv_id": "2611.22296v1",
+      "title": "SpecSearch: Towards Hardware-Aware Efficient Speculative Decoding",
+      "url": "https://arxiv.org/abs/2611.22296v1",
+      "authors": [
+        "Selin Yildirim",
+        "Ali Zeyrek",
+        "Deming Chen"
+      ],
+      "abstract": "Speculative decoding (SD) accelerates large language model (LLM) inference, but its optimal configuration depends jointly on workload characteristics, GPU hardware, and available memory. For example, on the RTX~5090, the state-of-the-art speculative drafter DFlash achieves $3.50\\times$ the throughput of autoregressive (AR) decoding at low concurrency, but only $0.76\\times$ at high concurrency with short outputs. We present SpecSearch, a hardware-aware search engine that jointly optimizes decoding strategy, draft length, and precision across workload--GPU pairs. Its analytical cost model captures memory and compute constraints to identify feasible configurations and narrow the search space for throughput optimization. Guided by this model, calibration measurements are collected from multiple GPUs. Using the measurements, a Jev-based predictor learns to select high-throughput decoding configurations on held-out GPUs without requiring deployment-GPU calibration. The predictor is parameter-efficiently trained on calibration data, while adapting a frozen Qwen3-4B using LoRA adapters and a linear correction layer. Across NVIDIA RTX~5090, H100, L40 and AMD MI300X GPUs, SpecSearch with full calibration achieves an average of $2.01\\times$ the throughput of AR and $1.36\\times$ the throughput of SD, both served by vLLM. The proposed Jev-based predictor closely matches this search performance with $1.30\\times$ throughput improvement over SD with vLLM, while eliminating the need for held-out GPU calibration. Additionally, it retains $97.36\\%$ of the throughput achieved by SpecSearch that utilizes full calibration.",
+      "theme": "Efficient AI & chips",
+      "emoji": "🔌",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 5
+      },
+      "overall": 4.25,
+      "card": {
+        "in_short": "SpecSearch uses an analytical cost model and a lightweight predictor to automatically find the best speculative decoding configuration for any hardware-workload pair.",
+        "picture_it": "Like a dynamic routing GPS that calculates the fastest route by analyzing current traffic and engine specs on the fly.",
+        "key_term": "Speculative decoding: a technique where a small, fast model drafts tokens and a large model verifies them in parallel to speed up generation.",
+        "why_it_matters": "Cloud providers can maximize GPU cluster throughput and lower inference costs without manual performance tuning for every new chip.",
+        "future_signal": "Inference optimization will be fully automated by hardware-aware AI agents rather than human systems engineers.",
+        "ask": "How well does the Jev-based predictor generalize to radically different chip architectures without any target-hardware calibration data?"
+      },
+      "date": "2026-11-18"
+    },
+    {
+      "arxiv_id": "2611.22033v1",
+      "title": "Thinking Harder Doesn't Lead to Better Choices: Reasoning Effort Increases the Confidence but Not the Correctness of LLM Shopping Agents",
+      "url": "https://arxiv.org/abs/2611.22033v1",
+      "authors": [
+        "Adi Krishnamoorthy",
+        "X. Y. Han"
+      ],
+      "abstract": "Large language models (LLMs) are increasingly deployed as autonomous shopping agents that process multimodal product listings (consisting of visual and text data) and recommend purchases on behalf of consumers. Naturally, one might assume that models with more thinking power would make higher-quality purchasing decisions. To test this belief, we ask two questions about such agents: does asking a model to think harder make it choose better products, and does the confidence it reports tell us the likelihood it may be wrong? We benchmark ten frontier models on three product-choice benchmarks built from WebShop, Amazon's SQID and Wayfair's WANDS platforms to see if LLMs with more thinking power actually make better-quality product purchase decisions. Across all three benchmarks, we found that increasing the thinking effort does not increase decision quality in a statistically meaningful way. The same change in thinking effort raises stated confidence at a statistically significant level, so extra thinking buys confidence rather than correctness. We also measure the calibration of these models (how well their reported confidence percentage matches their true correctness percentage) in these tasks and show that most models are not well-calibrated at every effort level. We also find that errors are strongly shared: when one model errs in a task, several others tend to err on that same task. Furthermore, on tasks where several models all err, a large number of them pick the same wrong product.",
+      "theme": "AI products & people",
+      "emoji": "📱",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 5
+      },
+      "overall": 4.25,
+      "card": {
+        "in_short": "Evaluating LLM shopping agents shows that forcing models to think harder increases their confidence, but does not improve the correctness of their product choices.",
+        "picture_it": "Like an overconfident salesperson who talks in circles to sound certain about a product they actually know little about.",
+        "key_term": "Model calibration: how closely a model's stated confidence percentage matches its actual rate of correct answers.",
+        "why_it_matters": "Consumer-facing AI products shouldn't rely on expensive reasoning chains for recommendation tasks, as it wastes compute for no accuracy gain.",
+        "future_signal": "The industry will pivot away from brute-force reasoning scaling for routine decision-making tasks toward better-calibrated models.",
+        "ask": "Why do multiple frontier models tend to make the exact same correlated errors on the same product choices?"
+      },
+      "date": "2026-11-18"
+    },
+    {
+      "arxiv_id": "2611.22445v1",
+      "title": "Autonomous Track Racing with a Commercially Available Humanoid: System Design and Real-World Deployment",
+      "url": "https://arxiv.org/abs/2611.22445v1",
+      "authors": [
+        "Koki Inami",
+        "Takashi Sato",
+        "Hiroyuki Oka",
+        "Shota Takizawa",
+        "Yuya Takahashi",
+        "Amon Suzuki",
+        "Hayato Ono",
+        "Kohtaro Ihara",
+        "Yuki Noka",
+        "Shohei Matsugu"
+      ],
+      "abstract": "Learning-based methods now let humanoids run robustly, and they have begun to compete in athletic events. Yet few reports describe a complete autonomous humanoid running system in an actual race, where the robot must follow a lane at a new venue, pace itself within hardware limits, and finish without intervention. We report such a system deployed on the Unitree G1, a commercially available general-purpose humanoid, in the 100 m, 400 m, and 1500 m events of the World Humanoid Robot Games 2026. The system integrates vision-based lane perception, path tracking, and a running policy trained by reinforcement learning with a human motion prior. To address the challenges of humanoid running, we stabilize head-camera images against body motion and use IMU-assisted leg odometry to bridge flight phases. To manage motor heating, we penalize hip-pitch torque during training, add heat-dissipation plates, and apply temperature-based speed limiting with event-specific pacing. The robot placed 13th of 74 in the 100 m, 10th of 44 in the 400 m first round before falling in the semifinal, and seventh of 35 in the 1500 m. In this deployment, thermal margin set the pace in every event, and the semifinal fall followed a lane-detection error.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 4,
+        "rigor": 4,
+        "impact": 4,
+        "relevance": 4
+      },
+      "overall": 4.2,
+      "card": {
+        "in_short": "Researchers deployed a reinforcement-learning running policy on a commercial humanoid robot, successfully completing races while managing thermal limits and vision challenges.",
+        "picture_it": "Like tuning a sports car engine to push its maximum speed while carefully monitoring oil temperature to avoid overheating.",
+        "key_term": "Leg odometry: estimating a robot's position and movement by measuring the motion and angles of its leg joints.",
+        "why_it_matters": "Commercial humanoids are stepping out of controlled labs into real-world athletic and dynamic operational environments.",
+        "future_signal": "Embodied AI deployment is increasingly bottlenecked by physical constraints like motor thermal limits rather than just algorithmic capability.",
+        "ask": "How much faster could the robot run if thermal dissipation plates were actively cooled instead of relying on passive cooling?"
+      },
+      "date": "2026-11-18"
+    }
+  ]
+}
