@@ -1,0 +1,256 @@
+{
+  "date": "2026-11-19",
+  "picks": [
+    {
+      "arxiv_id": "2611.24321v1",
+      "title": "Benchmarking LLM abilities on postdoc-level natural science problems",
+      "url": "https://arxiv.org/abs/2611.24321v1",
+      "authors": [
+        "Alina Avanesyan",
+        "Alexey Boldyrev",
+        "Liqun Deng",
+        "Denis Derkach",
+        "Mary Godunova",
+        "Mikhail Hushchyn",
+        "Dmitry Ilvovsky",
+        "Irina Knyazeva",
+        "Irina Piontkovskaya",
+        "Dmitry Polubotko",
+        "Fedor Ratnikov",
+        "Ekaterina Trofimova",
+        "Zhenhe Zhang"
+      ],
+      "abstract": "Scientific problems have no answer key, so evaluating an agent means deciding what counts as a better solution before any agent is run. Existing benchmarks either match a symbolic answer against a key or, where they require executable work, score it by unit tests, by a rubric, or by position on a competition leaderboard. None of these is the criterion by which a field decides that one published method beats another. STEMBench adopts that criterion directly. Each of its twelve research problems in high-energy physics, astrophysics and neuroscience is scored by its own field's figure of merit, and each comes with two measured anchors: a submission that uses no domain knowledge, and an expert reference reproducing a published method, both obtained by running code shipped with the benchmark. The interval between them states how much of a problem is crossed by scientific insight rather than by engineering. Across eight frontier models, task-level wins and domain-level leadership dissociate: a model that wins five of the twelve tasks leads no domain mean. In the high-effort cross-model comparison, at least one model's mean score exceeds the expert anchor on seven of twelve tasks. The remaining five span uncertainty estimation, latent and causal inference, and cross-site clinical classification. Numerical scores and official-submission validity capture different aspects of performance and are reported separately. We release the tasks, graders, anchors and harness.",
+      "theme": "Frontier LLMs & reasoning",
+      "emoji": "🧠",
+      "scores": {
+        "novelty": 5,
+        "rigor": 5,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 5.0,
+      "card": {
+        "in_short": "This paper introduces a rigorous benchmarking framework for evaluating AI agents on complex, real-world natural science research problems using domain-specific metrics.",
+        "picture_it": "Like grading a complex physics thesis by how well it solves real equations rather than multiple-choice quizzes.",
+        "key_term": "Figure of merit: a quantitative measure used to characterize the performance of a device, method, or system.",
+        "why_it_matters": "Companies can reliably measure when AI can genuinely assist or automate advanced scientific discovery instead of just passing exams.",
+        "future_signal": "AI evaluation is shifting from standard software tests toward authentic, expert-level domain challenges in the hard sciences.",
+        "ask": "How do you ensure these benchmarks don't suffer from data leakage when frontier models ingest vast academic literature?"
+      },
+      "date": "2026-11-19"
+    },
+    {
+      "arxiv_id": "2611.24039v1",
+      "title": "A Capability Framework for Evaluating Agentic AI Platforms in Regulated Enterprises",
+      "url": "https://arxiv.org/abs/2611.24039v1",
+      "authors": [
+        "Abbas Raza Ali",
+        "Muhammad Ajmal Siddiqui",
+        "Moona Zahid"
+      ],
+      "abstract": "Agentic AI platforms-systems in which LLM agents plan, invoke tools, retain memory and coordinate to change the state of enterprise systems-are being procured faster than they can be measured. Public agent benchmarks score models in fixed harnesses; enterprises buy integrated platforms whose orchestration, memory, governance and tooling layers dominate outcomes, and they buy them largely on the strength of vendor demonstrations. We report an industrial evaluation programme (\"bakeoff\") run by the innovation laboratory of a global bank in which ten platforms-spanning open-source frameworks, proprietary products and hyperscaler ecosystems-were assessed by a cross-functional panel on nine capability dimensions across three financial-services workloads: counterparty credit risk, retrieval-augmented generation and process automation. Scores separate the field into three tiers that are stable under alternative weightings, and surface workload-specific strengths that aggregates hide. A secondary analysis, however, finds Cronbach's alpha = 0.98 across nominally distinct dimensions and rank correlations >= 0.93 with the total for eight of nine: a halo effect indicating that demonstration-based scoring measures presentation as much as capability. From these lessons we propose a gate-then-score evaluation protocol with four layers (capability, execution reliability, governance gates, business value), trace-level reliability metrics estimated over repeated runs, an autonomy-readiness scale and a reproducibility protocol. We state precisely what the present evidence supports, and what a controlled harness must add to turn enterprise platform evaluation from structured judgement into measurement.",
+      "theme": "AI products & people",
+      "emoji": "📱",
+      "scores": {
+        "novelty": 5,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.8,
+      "card": {
+        "in_short": "This paper evaluates enterprise AI agent platforms and finds that flashy demos mask underlying capability limits, proposing a strict new multi-layer testing protocol.",
+        "picture_it": "Like driving a luxury sports car through a rigorous crash-test course instead of just admiring its showroom paint job.",
+        "key_term": "Halo effect: the tendency for an overall impression of a person or system to positively influence evaluations of its specific traits.",
+        "why_it_matters": "Enterprise buyers can avoid wasting money on overhyped agent platforms that look great in a pitch deck but fail under real workloads.",
+        "future_signal": "Enterprise AI procurement is moving away from marketing demos toward standardized, rigorous operational testing.",
+        "ask": "How do you separate the inherent capabilities of an underlying LLM from the scaffolding and orchestration layer of the platform?"
+      },
+      "date": "2026-11-19"
+    },
+    {
+      "arxiv_id": "2611.22897v2",
+      "title": "Born for the Task: Rethinking Quantum Chemistry with Foresighted Agentic Computing",
+      "url": "https://arxiv.org/abs/2611.22897v2",
+      "authors": [
+        "Haozhi Han",
+        "Junjie Yang",
+        "Ruge Zhang",
+        "Zihe Huang",
+        "Pengyi Xu",
+        "Bo Zhang",
+        "Xianyi Zhang",
+        "Yunquan Zhang",
+        "Ting Cao",
+        "Yunxin Liu",
+        "Yifeng Chen",
+        "Kun Li"
+      ],
+      "abstract": "Quantum chemistry relies on general-purpose software, whose generality leaves many large-scale calculations beyond practical resource budgets. Coding agents make task-specific programs cheap to write, but not efficient ones easy to find: whether a computational strategy is accurate and fast enough becomes clear only after it actually runs at the target scale. We introduce MakoBORN, a foresighted agentic computing framework that synthesizes high performance quantum chemistry programs on demand. MakoBORN anticipates the behavior of each strategy before execution, extrapolating its error from representative small systems and predicting its runtime from the target-scale workload and measured hardware throughputs. Building on these predictions, MakoBORN unfolds the preset schemes of existing packages into independently configurable algorithmic components, selects the fastest strategy within the error tolerance from the predicted accuracy-runtime Pareto frontier, and guides coding agents to compile it with component-level performance predictions. For a Hartree-Fock calculation with 50,024 basis functions, MakoBORN finishes in 1.41 h on a single CPU node, 77$\\times$ faster than the estimated runtime of a general-purpose baseline and still 9.8$\\times$ faster with development time included. On a single GPU, MakoBORN completes the ubiquitin calculation in 2.1 h, the same order of runtime as the GPU-accelerated package Mako on 64 GPUs, and shortens the B-DNA duplex calculation from an estimated two months to 8.1 h (173$\\times$).",
+      "theme": "AI for science & deeptech",
+      "emoji": "🔬",
+      "scores": {
+        "novelty": 5,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.8,
+      "card": {
+        "in_short": "This paper presents an AI framework that predicts the performance and error of quantum chemistry programs before running them, generating custom code 173 times faster than standard methods.",
+        "picture_it": "Like an expert architect who instantly drafts a bespoke, hyper-efficient building layout instead of modifying a generic blueprint.",
+        "key_term": "Pareto frontier: the set of all feasible allocations that are optimal, where no metric can be improved without worsening another.",
+        "why_it_matters": "Researchers and pharmaceutical companies can run massive molecular simulations in hours rather than months, drastically cutting R&D costs.",
+        "future_signal": "AI is moving from general coding assistants to specialized systems that design and optimize domain-specific scientific software from scratch.",
+        "ask": "How robust is the error prediction when your agent encounters entirely uncharacterized molecular structures?"
+      },
+      "date": "2026-11-19"
+    },
+    {
+      "arxiv_id": "2611.24940v1",
+      "title": "$Z$-sight: Unifying Vision-Language-Action and Latent World Modeling",
+      "url": "https://arxiv.org/abs/2611.24940v1",
+      "authors": [
+        "Junjie Ye",
+        "Yiqi Zhao",
+        "Muchen Xu",
+        "Celina Shiyu Wang",
+        "Hao Dong",
+        "Ruohai Ge",
+        "Rong Xue",
+        "Benjamin J Kolligs",
+        "Aditya Dutt",
+        "Sasanka Nagavalli",
+        "Nassim A. Samad",
+        "Gaurav S. Sukhatme",
+        "Jyotirmoy V. Deshmukh",
+        "Yue Wang",
+        "Yuliang Guo"
+      ],
+      "abstract": "We introduce $Z$-sight, a unified robot foundation model that couples vision-language-action (VLA) and generative latent world modeling. Video-based world action models (WAMs) show the value of joint future-and-action generation for control, yet inherit the heavy cost of video generators. Recent latent-space policies avoid pixel generation, yet typically align intermediate features or rely on frozen target encoders, decoupling future prediction from the VLM's native feature space. $Z$-sight instead predicts the future directly in the visual token space in which its VLM perceives the present. Coupling a foresight expert and a continuous action expert with the VLM in a mixture-of-transformers, $Z$-sight jointly denoises future spatial tokens and actions at inference without pixel reconstruction or external encoders. Trained on human video and robot trajectories, $Z$-sight achieves 81.9% success on SIMPLE (+9.6 points over the strongest baseline) and 73.3% across six Unitree G1 tasks (+20.0 points) at 110 ms per chunk, while remaining competitive on tabletop benchmarks.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 5,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 5
+      },
+      "overall": 4.8,
+      "card": {
+        "in_short": "This paper introduces a robot foundation model that jointly predicts future visual states and actions without heavy pixel generation, improving multi-task success rates.",
+        "picture_it": "Like a chess player who visualizes several moves ahead in their mind rather than rendering a full movie of the board.",
+        "key_term": "Latent world model: a computational representation of an environment's dynamics that operates in an abstract, compressed feature space.",
+        "why_it_matters": "Robots can react and plan much faster in the physical world, making them safer and more capable around humans.",
+        "future_signal": "Robotics AI is converging toward unified models that seamlessly blend perception, future prediction, and physical action.",
+        "ask": "How does predicting futures in a token space scale when robots encounter highly dynamic, unpredictable real-world environments?"
+      },
+      "date": "2026-11-19"
+    },
+    {
+      "arxiv_id": "2611.22275v2",
+      "title": "Heave-Ho: Decentralized Long-Horizon Multi-Humanoid Collaboration",
+      "url": "https://arxiv.org/abs/2611.22275v2",
+      "authors": [
+        "Ting-Hsuan Chen",
+        "Siheng Zhao",
+        "Han Jiang",
+        "Qi Pan",
+        "Louison Lu",
+        "Jiaheng Luo",
+        "Henghui Bao",
+        "Yiyu Chen",
+        "Quan Nguyen",
+        "Yue Wang"
+      ],
+      "abstract": "Collaboration promises to extend humanoid capabilities beyond what individual robots can achieve. However, realizing this potential requires coordinated whole-body interactions, coherent long-horizon planning, and precise synchronization across robots. We introduce Heave-Ho, a decentralized framework for long-horizon collaborative multi-humanoid loco-manipulation. At the low level, we develop a multi-agent post-training framework that adapts a humanoid foundation tracking model to physically coupled interactions between humanoids, enabling coordinated decentralized control from local observations alone. At the high level, we train a vision-language planner and design a speech-based leader-follower coordination mechanism to synchronize decentralized execution without network communication. Trained with two identical humanoids, our system scales to teams of up to ten robots and generalizes to heterogeneous teams without retraining. To benchmark these capabilities, we introduce HH-Bench, comprising 12 tasks involving teams of 2 to 10 humanoids, including heterogeneous teams. Systematic evaluations show that Heave-Ho consistently outperforms baseline methods, while real-world experiments demonstrate robust decentralized collaboration across challenging tasks.",
+      "theme": "Robotics & embodied AI",
+      "emoji": "🦾",
+      "scores": {
+        "novelty": 5,
+        "rigor": 4,
+        "impact": 5,
+        "relevance": 4
+      },
+      "overall": 4.75,
+      "card": {
+        "in_short": "This paper introduces a decentralized framework allowing multiple humanoid robots to collaborate on long-horizon physical tasks using local observations and speech cues.",
+        "picture_it": "Like a crew of human construction workers lifting a heavy beam together using verbal counts instead of a central radio dispatcher.",
+        "key_term": "Decentralized control: a system architecture where individual agents make decisions based on local information without a central coordinator.",
+        "why_it_matters": "Robotic workforces can scale flexibly and handle heavy, complex physical labor without failing if a central server drops out.",
+        "future_signal": "Embodied AI is shifting from single-robot capabilities to synchronized, multi-agent swarm collaboration.",
+        "ask": "How do you handle catastrophic failure recovery if one humanoid in the decentralized team misinterprets a physical cue?"
+      },
+      "date": "2026-11-19"
+    },
+    {
+      "arxiv_id": "2611.23398v1",
+      "title": "HardwareDx: A Foundational Graph Model System for Datacenter Machine Repairs",
+      "url": "https://arxiv.org/abs/2611.23398v1",
+      "authors": [
+        "Yuanlin Wen",
+        "Elan Markowitz",
+        "Zubo Gu",
+        "Sami Abu-El-Haija",
+        "Bryan Perozzi",
+        "Mikhail Galkin",
+        "Ali Parviz",
+        "Aayush Gupta",
+        "Venkata Chivukula",
+        "Griffin Hadfield",
+        "Aravind Akella",
+        "Daniel J. Frame",
+        "Vahab Mirrokni",
+        "Amin Vahdat"
+      ],
+      "abstract": "The rapid scale-up of AI infrastructure has made datacenter reliability a cornerstone of the cloud business economy. Since hardware failures in hyper-scale AI clusters can stall multi-million dollar training workloads, the downtime of individual machines can cause outsized economic losses. Minimizing machine downtime, therefore, is more important than ever. To address this, we present Hardware Diagnoser (HardwareDx), an AI-driven hardware diagnosis system that applies a graph foundation model approach to automated datacenter maintenance. It allows a single model to diagnose many platforms and accelerate onboarding of new hardware products. Deployed at production scale at Google, HardwareDx yields substantial efficiency gains across diverse compute architectures. Real-world evaluations demonstrate that it reduces production downtime by 18.3% on GPU platforms and 16.1% on TPUs. Furthermore, it significantly accelerates hardware deployment, cutting quality assurance (QA) time by 28.3% for GPUs and 25.1% for TPUs. These results establish HardwareDx as a field-tested solution for maximizing the reliability and cost efficiency of next generation AI fleets.",
+      "theme": "Efficient AI & chips",
+      "emoji": "🔌",
+      "scores": {
+        "novelty": 4,
+        "rigor": 5,
+        "impact": 5,
+        "relevance": 4
+      },
+      "overall": 4.5,
+      "card": {
+        "in_short": "This paper presents a graph foundation model deployed at Google that automates datacenter hardware diagnosis, reducing downtime and QA time significantly.",
+        "picture_it": "Like an expert doctor using a comprehensive body map to instantly trace a symptom to a specific failing organ.",
+        "key_term": "Graph foundation model: a machine learning architecture designed to reason over complex networks of interconnected entities and relationships.",
+        "why_it_matters": "Cloud providers and AI labs can save millions by drastically reducing the downtime of massive GPU and TPU clusters.",
+        "future_signal": "Infrastructure management is becoming fully autonomous as graph AI scales to oversee hyper-complex hardware fleets.",
+        "ask": "How quickly can this graph model adapt to diagnosing entirely new hardware architectures it has never seen before?"
+      },
+      "date": "2026-11-19"
+    },
+    {
+      "arxiv_id": "2611.24032v1",
+      "title": "Test-Time Symmetrization: Scaling Laws for Model-Agnostic Learning under Structure",
+      "url": "https://arxiv.org/abs/2611.24032v1",
+      "authors": [
+        "Behrooz Tahmasebi",
+        "Melanie Weber"
+      ],
+      "abstract": "Test-time compute has emerged as a powerful way to improve the accuracy of language models at inference time, with scaling laws quantifying how accuracy improves with additional forward passes. Existing scaling laws, however, focus on repeated sampling from a fixed prompt, even though many tasks admit multiple equivalent representations of the same underlying problem. A graph does not depend on how its nodes are numbered, and a program does not depend on the names of its variables, yet language models can change their answers under such rewritings. In this paper, we study test-time symmetrization, which uses forward passes on rewritings of the input and aggregates the resulting answers over the group $G$ of rewritings. We prove that no amount of sampling and repeated decoding from a single representation can replace rewriting, while only $O(\\log |G|)$ random rewritings suffice to recover the information provided by all $|G|$ rewritings. The same set of $O(\\log |G|)$ rewritings provides simultaneous approximation across models, decoding rules, and sampled reasoning traces, and the logarithmic scaling is optimal in general. We validate the theory with experiments on Qwen2.5-7B, Phi-4-mini, Llama-3.1-8B, and Qwen2.5-14B, with chain-of-thought reasoning, on graph reasoning, logical deduction, and multiple-choice question answering. At the same number of forward passes, spending them on rewritings of the input is substantially more accurate than spending them on repeated sampling from the original prompt whenever the model's answer depends on how the input is written, and the number of rewritings needed grows only logarithmically with the number of possible rewritings, as the theory predicts. Our results provide a principled way to enforce symmetries at inference time when they cannot be built into the model, which we call model-agnostic symmetrization.",
+      "theme": "Frontier LLMs & reasoning",
+      "emoji": "🧠",
+      "scores": {
+        "novelty": 4,
+        "rigor": 5,
+        "impact": 4,
+        "relevance": 4
+      },
+      "overall": 4.4,
+      "card": {
+        "in_short": "This paper shows that feeding different textual rewritings of an input to a language model improves reasoning accuracy much more efficiently than repeated sampling from a single prompt.",
+        "picture_it": "Like looking at a complex puzzle from multiple different angles rather than staring intensely from just one spot.",
+        "key_term": "Test-time symmetrization: applying transformations that preserve a problem's core structure to inputs during inference to improve reliability.",
+        "why_it_matters": "Developers can boost reasoning accuracy in off-the-shelf LLMs without needing to retrain or fine-tune the underlying weights.",
+        "future_signal": "Inference-time scaling is evolving beyond brute-force token generation to intelligent structural exploration of problems.",
+        "ask": "How do you automatically generate valid semantic rewritings for complex, unstructured enterprise queries without changing the original intent?"
+      },
+      "date": "2026-11-19"
+    }
+  ]
+}
